@@ -1,0 +1,190 @@
+{layout name="layout" /}
+
+        <div class="row">
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter" data-count=".num" data-from="0.00" data-to="{$asset.available + $asset.disable}" data-prefix="￥" data-duration="2">
+                    <div class="xe-icon">
+                        <i class="linecons-cloud"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>总余额</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter xe-counter-blue" data-count=".num" data-from="0.00" data-to="{$asset.available}" data-prefix="￥" data-duration="2">
+                    <div class="xe-icon">
+                        <i class="linecons-paper-plane"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>可用金额</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter xe-counter-info" data-count=".num" data-from="0.00" data-to="{$asset.disable}" data-prefix="￥" data-duration="2">
+                    <div class="xe-icon">
+                        <i class="linecons-cloud"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>待结算金额</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter xe-counter-red" data-count=".num" data-from="0" data-to="{$asset.disable}" data-prefix="￥" data-duration="5">
+                    <div class="xe-icon">
+                        <i class="linecons-lightbulb"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>冻结金额</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <!-- Default panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        账户基本信息
+                    </div>
+
+                    <div class="panel-body">
+
+                       </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <!-- Default panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        一码支付
+                    </div>
+
+                    <div class="panel-body">
+
+                       </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-3">
+                <div class="xe-widget xe-conversations">
+                    <div class="xe-bg-icon">
+                        <i class="linecons-comment"></i>
+                    </div>
+                    <div class="xe-header">
+                        <div class="xe-icon">
+                            <i class="linecons-comment"></i>
+                        </div>
+                        <div class="xe-label">
+                            <h4>
+                                最新公告
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="xe-body">
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <div class="xe-comment-entry">
+                                    <div class="xe-comment">
+                                        <p>公告1</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="xe-comment-entry">
+                                    <div class="xe-comment">
+                                        <p>公告2</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="xe-comment-entry">
+                                    <div class="xe-comment">
+                                        <p>公告3</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <script type="text/javascript">
+                            jQuery(document).ready(function($)
+                            {
+                                var dataSource = [
+                                    { year: '周一', europe: '{$order_count}', americas: 332 },
+                                    { year: '周二', europe: '{$order_count}', americas: 417 },
+                                    { year: '周三', europe: '{$order_count}', americas: 513 },
+                                    { year: '周四', europe: '{$order_count}', americas: 614 },
+                                    { year: '周五', europe: '{$order_count}', americas: 721 },
+                                    { year: '周六', europe: '{$order_count}', americas: 200 },
+                                    { year: '周日', europe: '{$order_count}', americas: 836 }
+                                ];
+
+                                $("#bar-3").dxChart({
+                                    dataSource: dataSource,
+                                    commonSeriesSettings: {
+                                        argumentField: "year"
+                                    },
+                                    series: [
+                                        { valueField: "europe", name: "支付订单", color: "#40bbea" },
+                                        { valueField: "americas", name: "退款订单", color: "#cc3f44" },
+                                    ],
+                                    argumentAxis:{
+                                        grid:{
+                                            visible: true
+                                        }
+                                    },
+                                    tooltip:{
+                                        enabled: true
+                                    },
+                                    title: "交易订单概况",
+                                    legend: {
+                                        verticalAlignment: "bottom",
+                                        horizontalAlignment: "center"
+                                    },
+                                    commonPaneSettings: {
+                                        border:{
+                                            visible: true,
+                                            right: false
+                                        }
+                                    }
+                                });
+                            });
+                        </script>
+                        <div id="bar-3" style="height: 400px; width: 100%; user-select: none;" class="dx-visibility-change-handler">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Imported scripts on this page -->
+        <script src="__ENON__/js/devexpress-web-14.1/js/globalize.min.js"></script>
+        <script src="__ENON__/js/devexpress-web-14.1/js/dx.chartjs.js"></script>

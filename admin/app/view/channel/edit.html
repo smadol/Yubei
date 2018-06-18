@@ -1,0 +1,57 @@
+<!-- Imported scripts on this page -->
+<!-- 	<script src="__STATIC__/js/jquery-validate/jquery.validate.min.js"></script>
+	<link rel="stylesheet" href="__STATIC__/css/xenon-forms.css"> -->
+
+
+<form class="validate add-form" novalidate="novalidate">
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label class="control-label">渠道编号</label>
+                <input type="text" class="form-control" value="{$info.sn}" readonly>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label class="control-label">渠道名称</label>
+                <input type="text" class="form-control" name="channel" value="{$info.channel}" placeholder="渠道名称" >
+            </div>
+
+        </div>
+        <div class="col-md-4">
+
+            <div class="form-group">
+                <label class="control-label">渠道费率</label>
+                <input type="text" class="form-control" name="rate" value="{$info.rate}" placeholder="渠道费率 ： 0.8" >
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        {foreach name="app" item="vo" key="k"  }
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label">{$k}</label>
+                <input type="text" class="form-control" name="{$k}" value="{$vo}" placeholder="商户Appid" >
+            </div>
+        </div>
+        {/foreach}
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">状态</label>
+                <select class="form-control" name="status">
+                    <option value="0" {eq name="info.status" value="0"} selected="selected" {/eq} >禁用</option>
+                    <option value="1" {eq name="info.status" value="1"} selected="selected" {/eq} >启用</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</form>

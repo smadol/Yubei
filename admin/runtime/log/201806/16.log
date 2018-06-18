@@ -1,0 +1,692 @@
+---------------------------------------------------------------
+[ 2018-06-16T13:00:33+08:00 ] 127.0.0.1 GET /
+[ info ] admin.yubei.cn/ [运行时间：0.059085s][吞吐率：16.92req/s] [内存消耗：1,180.49kb] [文件加载：44]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => '',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-16T13:00:33+08:00 ] 127.0.0.1 GET /login/index.html
+[ info ] admin.yubei.cn/login/index.html [运行时间：0.035380s][吞吐率：28.26req/s] [内存消耗：1,167.98kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\controller\Login->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Login.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-06-16T13:00:36+08:00 ] 127.0.0.1 POST /login/login.html
+[ info ] admin.yubei.cn/login/login.html [运行时间：0.110656s][吞吐率：9.04req/s] [内存消耗：2,012.23kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'login',
+    2 => 'login',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125234',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/login/index.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://admin.yubei.cn',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '43',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+  'do_login' => 'true',
+  'username' => 'admin',
+  'password' => 'admin',
+)
+[ info ] [ RUN ] app\controller\Login->login[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002616s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.041950s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001023s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:00:37+08:00 ] 127.0.0.1 GET /index/index.html
+[ info ] admin.yubei.cn/index/index.html [运行时间：0.133825s][吞吐率：7.47req/s] [内存消耗：2,138.95kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125234',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\index\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002823s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.029066s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.033075s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.001311s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000875s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:00:49+08:00 ] 127.0.0.1 GET /channel/index.html
+[ info ] admin.yubei.cn/channel/index.html [运行时间：0.174652s][吞吐率：5.73req/s] [内存消耗：2,293.84kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125238',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\channel\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012566s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.027658s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000780s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.028097s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000558s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.032073s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yb_channel` LIMIT 1 [ RunTime:0.000803s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` LIMIT 0,15 [ RunTime:0.000473s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:00:57+08:00 ] 127.0.0.1 GET /Channel/edit/id/1.html
+[ info ] admin.yubei.cn/Channel/edit/id/1.html [运行时间：0.163445s][吞吐率：6.12req/s] [内存消耗：2,148.98kb] [文件加载：59]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'Channel',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125250',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->edit[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002867s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.035877s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001032s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.029866s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000829s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000973s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.031509s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000824s ]
+[ error ] [2]Invalid argument supplied for foreach()[D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php:63]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:00+08:00 ] 127.0.0.1 GET /Channel/edit/id/2.html
+[ info ] admin.yubei.cn/Channel/edit/id/2.html [运行时间：0.148331s][吞吐率：6.74req/s] [内存消耗：2,123.48kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'Channel',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125250',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->edit[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\channel\edit.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'info',
+  3 => 'app',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002590s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.028992s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.029643s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.001182s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000989s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.029782s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` WHERE  `id` = 2 LIMIT 1 [ RunTime:0.000974s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:12+08:00 ] 127.0.0.1 GET /Channel/edit/id/4.html
+[ info ] admin.yubei.cn/Channel/edit/id/4.html [运行时间：0.144507s][吞吐率：6.92req/s] [内存消耗：2,123.38kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'Channel',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125250',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->edit[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\channel\edit.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'info',
+  3 => 'app',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002598s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.030484s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000682s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.028310s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000672s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000642s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.028282s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` WHERE  `id` = 4 LIMIT 1 [ RunTime:0.000750s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:17+08:00 ] 127.0.0.1 GET /Channel/edit/id/5.html
+[ info ] admin.yubei.cn/Channel/edit/id/5.html [运行时间：0.147329s][吞吐率：6.79req/s] [内存消耗：2,131.47kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'Channel',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125250',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '5',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->edit[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\channel\edit.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'info',
+  3 => 'app',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002818s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.028112s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000903s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.029156s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000662s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000443s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.028415s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` WHERE  `id` = 5 LIMIT 1 [ RunTime:0.000752s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:26+08:00 ] 127.0.0.1 GET /channel/b.html
+[ info ] admin.yubei.cn/channel/b.html [运行时间：0.125825s][吞吐率：7.95req/s] [内存消耗：2,111.36kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'channel',
+    2 => 'b',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125250',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002983s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.031219s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.029693s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000477s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:27+08:00 ] 127.0.0.1 GET /channel/index.html
+[ info ] admin.yubei.cn/channel/index.html [运行时间：0.170407s][吞吐率：5.87req/s] [内存消耗：2,293.91kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125287',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\channel\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003089s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.029637s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001051s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.039259s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000625s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.030938s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yb_channel` LIMIT 1 [ RunTime:0.000578s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` LIMIT 0,15 [ RunTime:0.000760s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:36+08:00 ] 127.0.0.1 GET /
+[ info ] admin.yubei.cn/ [运行时间：0.121503s][吞吐率：8.23req/s] [内存消耗：2,135.98kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => '',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125288',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\index\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002582s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.030167s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000975s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.034747s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.001125s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000926s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:38+08:00 ] 127.0.0.1 GET /customer/index.html
+[ info ] admin.yubei.cn/customer/index.html [运行时间：0.152378s][吞吐率：6.56req/s] [内存消耗：2,270.53kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'customer',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125297',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Customer->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Customer.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\customer\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002596s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.027889s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000599s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.030894s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000437s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_user` [ RunTime:0.029231s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yb_user` LIMIT 1 [ RunTime:0.000540s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_user` LIMIT 0,10 [ RunTime:0.000453s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:40+08:00 ] 127.0.0.1 GET /channel/index.html
+[ info ] admin.yubei.cn/channel/index.html [运行时间：0.157403s][吞吐率：6.35req/s] [内存消耗：2,293.91kb] [文件加载：60]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'channel',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125299',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/customer/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\Channel->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\Channel.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\channel\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002625s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.028474s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.034549s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000594s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000471s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_channel` [ RunTime:0.030109s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yb_channel` LIMIT 1 [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_channel` LIMIT 0,15 [ RunTime:0.000636s ]
+---------------------------------------------------------------
+[ 2018-06-16T13:01:42+08:00 ] 127.0.0.1 GET /user/index.html
+[ info ] admin.yubei.cn/user/index.html [运行时间：0.176559s][吞吐率：5.66req/s] [内存消耗：2,508.13kb] [文件加载：65]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125229; PHPSESSID=6poosslqfog3d488i243co9r60; Hm_lvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529069118,1529125229; Hm_lpvt_0bd5902d44e80b78cb1cd01ca0e85f4a=1529125300',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://admin.yubei.cn/channel/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'admin.yubei.cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\controller\User->index[ D:\phpStudy\PHPTutorial\WWW\yubei\admin\app\controller\User.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\yubei\admin\public/../app/view\user\index.html [ array (
+  0 => '_user',
+  1 => '_menuList',
+  2 => 'role',
+  3 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002552s ] mysql:host=127.0.0.1;port=3306;dbname=yubei;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin` [ RunTime:0.028053s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_menu` [ RunTime:0.028734s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` = 0 [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_menu` WHERE  `status` = 0  AND `level` > 0 [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yb_admin_role` [ RunTime:0.033077s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_role` [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `yb_admin` LIMIT 1 [ RunTime:0.000547s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin` LIMIT 0,10 [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SELECT * FROM `yb_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000756s ]

@@ -1,0 +1,116 @@
+{include file="header"/}
+<section class="hero hero--no-content">
+</section>
+<div id="content" class="term-content-container">
+    <div class="row align-center">
+        <div class="small-12 columns terms-content">
+            <div id="proCon" class="contact-con">
+                <form data-abide novalidate id="contact">
+                    <div class="contact-form-container row align-center">
+                        <div class="small-11 medium-8 large-7 columns">
+                            <input type="hidden" id="source" name="source" value="contact_page">
+                            <div class="row">
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <label>姓名</label>
+                                    <input type="text" id="name" name="name" required/>
+                                </div>
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <label>手机号码</label>
+                                    <input type="text" id="phone" name="phone" required pattern="phone"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <label>电子邮件地址</label>
+                                    <input type="text" id="from" name="customer_email" required pattern="email"/>
+                                </div>
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <label>所在公司名称或网址</label>
+                                    <input type="text" id="companyname" name="name_or_site" required/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <label>公司规模</label>
+                                    <select id="company" name="company" required>
+                                        <option value="" selected="selected" disabled="disabled">选择</option>
+                                        <option value="50 人以下">50 人以下</option>
+                                        <option value="50-100 人">50-100 人</option>
+                                        <option value="100-200 人">100-200 人</option>
+                                        <option value="200-500 人">200-500 人</option>
+                                        <option value="500 人以上">500 人以上</option>
+                                    </select>
+                                </div>
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <label>选择目的</label>
+                                    <select id="to" name="to_email" required autocomplete="off">
+                                        <option value="" selected="selected" disabled="disabled">选择</option>
+                                        <option value="sales@pingxx.com" data-v="1">产品售前咨询</option>
+                                        <option value="sales@pingxx.com" data-v="2">企业定制服务</option>
+                                        <option value="ad@pingxx.com" data-v="3">广告版套餐申请</option>
+                                        <option value="cc@pingxx.com" data-v="4">跨境支付咨询</option>
+                                        <option class="select-dash" disabled="disabled">&mdash;</option>
+                                        <option value="sales@pingxx.com" data-v="5">产品反馈</option>
+                                        <option value="sales@pingxx.com" data-v="6">账户与账单</option>
+                                        <option class="select-dash" disabled="disabled">&mdash;</option>
+                                        <option value="marketing@pingxx.com" data-v="7">商务、媒体合作</option>
+                                        <option value="marketing@pingxx.com" data-v="8">公益计划申请</option>
+                                        <option value="hr@pingxx.com" data-v="9">加入我们</option>
+                                        <option value="sales@pingxx.com" data-v="10">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="small-12 medium-4 large-4 columns">
+                                    <label>公司所在省</label>
+                                    <select id="province" name="province" required>
+
+                                    </select>
+                                </div>
+
+                                <div class="small-12 medium-4 large-4 columns">
+                                    <label>公司所在市</label>
+                                    <select id="city" name="city">
+
+                                    </select>
+                                </div>
+
+                                <div class="small-12 medium-4 large-4 columns">
+                                    <label>公司所在县/区</label>
+                                    <select id="area" name="area">
+
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="columns">
+                                    <label>描述</label>
+                                    <textarea style="min-height: 6em;" placeholder="告诉我们如何为你提供帮助" id="description" name="description" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row align-right">
+                                <div class="columns shrink">
+                                    <button class="medium button alt" id="submit">发送</button>
+                                    <a id="submiting" class="medium button alt disabled" style="display: none">正在提交...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="proSuccess" class="contact-con text-center" style="display: none;">
+                <div class="pos-middle">
+                    <div class="pro-ico">
+                        <span class="pro-icon-success pro-draw"></span>
+                    </div>
+                    <p class="pro-txt">请耐心等候<br>我们很快会回复您</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="footer"/}
+        

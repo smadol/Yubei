@@ -1,0 +1,189 @@
+{layout name="layout" /}
+
+        <!-- Imported scripts on this page -->
+        <script src="/assets/js/rwd-table/js/rwd-table.min.js"></script>
+        <script src="/assets/js/datatables/js/jquery.dataTables.min.js"></script>
+
+        <!-- Imported scripts on this page -->
+        <script src="/assets/js/datatables/dataTables.bootstrap.js"></script>
+        <script src="/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+        <script src="/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+
+        <script src="/assets/js/table-export/xlsx.core.min.js"></script>
+        <script src="/assets/js/table-export/blob.js"></script>
+        <script src="/assets/js/table-export/FileSaver.min.js"></script>
+        <script src="/assets/js/table-export/tableexport.js"></script>
+
+        <div class="page-title">
+
+            <div class="title-env">
+                <h1 class="title">商户中心</h1>
+                <p class="description">商户API信息</p>
+            </div>
+
+            <div class="breadcrumb-env">
+
+                <ol class="breadcrumb bc-1">
+                    <li>
+                        <a href="/"><i class="fa-home"></i>商户平台</a>
+                    </li>
+                    <li>
+
+                        <a href="#">商户中心</a>
+                    </li>
+                    <li class="active">
+
+                        <strong>商户API信息</strong>
+                    </li>
+                </ol>
+
+            </div>
+
+        </div>
+        <section class="profile-env">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Removing search and results count filter -->
+                    <div class="panel panel-default">
+                    <div class="panel-heading btn-toolbar">
+                         <h3 class="panel-title">订单列表</h3>
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                                导出对账单 <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-success" role="menu">
+                                <li>
+                                    <a href="{:url('user/Order/excel',['date'=> 'day'])}">当日对账单</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('user/Order/excel',['date'=> 'month'])}">本月对账单</a>
+                                </li>
+                                <li>
+                                    <a href="{:url('user/Order/excel',['date'=> 'day'])}">本季度对账单</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="{:url('user/Order/excel',['date'=> 'day'])}">近半年对账单</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <!-- searach -->
+                        <div class="btn-toolbar">
+
+                            <form method="get" class="form-inline search-tool" style="margin-bottom:15px;">
+                                <span style="margin-left: 15px;">
+                                    <label class="control-label">订单编号</label>
+                                    <input type="text" class="form-control" placeholder="订单编号" name="out_trade_no" value="{$Request.get.out_trade_no}" />
+                                </span>
+                                <span style="margin-left: 15px;">
+                                    <label class="control-label">时间选择</label>
+                                    <input name="time" value="{$Request.get.time}" placeholder="时间选择" type="text" id="field-2" class="form-control daterange" data-format="YYYY-MM-DD"  data-separator="/" />
+                                </span>
+
+                                <span style="margin-left: 15px;">
+                                    <label class="control-label">支付渠道</label>
+                                    <select class="form-control" name="channel">
+                                        <option value="" {eq name="Request.get.channel" value=""} selected="selected" {/eq}>全部</option>
+                                        <option value="WXPAY" {eq name="Request.get.channel" value="WXPAY"} selected="selected" {/eq}>微信支付</option>
+                                        <option value="ALIPAY" {eq name="Request.get.channel" value="ALIPAY"} selected="selected" {/eq}>支付宝支付</option>
+                                    </select>
+                                </span>
+
+                                <span style="margin-left: 15px;">
+                                    <label class="control-label">订单状态</label>
+                                    <select class="form-control" name="status">
+                                        <option value="" {eq name="Request.get.status" value=" "} selected="selected" {/eq}>全部</option>
+                                        <option value="1" {eq name="Request.get.status" value="1"} selected="selected" {/eq}>待支付</option>
+                                        <option value="2" {eq name="Request.get.status" value="2"} selected="selected" {/eq}>已支付</option>
+                                    </select>
+                                </span>
+
+                                <span style="margin-left: 15px;">
+                                    <button class="btn btn-default btn-primary" type="submit" style="margin-top:10px;">
+                                        <span class="fa-search"></span> 搜 索
+                                    </button>
+                                </span>
+
+                            </form>
+
+                        </div>
+                        <!-- searach -->
+                        <table class="table table-bordered table-striped" id="支付订单">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>订单号</th>
+                                    <th>支付项目</th>
+                                    <th>支付内容</th>
+                                    <th>交易金额</th>
+                                    <th>交易渠道</th>
+                                    <th>状态</th>
+                                    <th>创建时间</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="middle-align">
+
+                            {foreach $list as $vo}
+                            <tr>
+                                <td> {$vo.id} </td>
+                                <td> {$vo.out_trade_no} </td>
+                                <td> {$vo.subject} </td>
+                                <td> {$vo.body} </td>
+                                <td> {$vo.amount} </td>
+                                <td> {$vo.channel} </td>
+                                <td>
+                                    {if $vo.status == 1}
+                                    <div class="label label-warning">等待支付</div>
+                                    {elseif $vo.status == 2/}
+                                    <div class="label label-success">支付完成</div>
+                                    {else /}
+                                    <div class="label label-black">支付异常</div>
+                                    {/if}
+                                </td>
+                                <td> {$vo.create_time} </td>
+                                </td>
+                            </tr>
+                            {/foreach}
+
+                            </tbody>
+                        </table>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="dataTables_info" id="example-3_info" role="status" aria-live="polite"> 共{:count( $list ) } 行数据</div></div>
+                            <div class="col-xs-6">
+                                <div class="dataTables_paginate paging_simple_numbers" id="example-3_paginate">
+                                    {$list->render()}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <!-- Imported styles on this page -->
+        <link rel="stylesheet" href="/assets/js/daterangepicker/daterangepicker-bs3.css">
+        <link rel="stylesheet" href="/assets/js/select2/select2.css">
+        <link rel="stylesheet" href="/assets/js/select2/select2-bootstrap.css">
+        <link rel="stylesheet" href="/assets/js/multiselect/css/multi-select.css">
+
+        <script src="/assets/js/moment.min.js"></script>
+
+
+        <!-- Imported scripts on this page -->
+        <script src="/assets/js/daterangepicker/daterangepicker.js"></script>
+        <script src="/assets/js/datepicker/bootstrap-datepicker.js"></script>
+        <script src="/assets/js/timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="/assets/js/colorpicker/bootstrap-colorpicker.min.js"></script>
+        <script src="/assets/js/select2/select2.min.js"></script>
+        <script src="/assets/js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
+        <script src="/assets/js/tagsinput/bootstrap-tagsinput.min.js"></script>
+        <script src="/assets/js/typeahead.bundle.js"></script>
+        <script src="/assets/js/handlebars.min.js"></script>
+        <script src="/assets/js/multiselect/js/jquery.multi-select.js"></script>

@@ -1,0 +1,199 @@
+{layout name="layout" /}
+
+        <div class="row">
+
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter xe-counter-gray" data-count=".num" data-from="0.00" data-to="{$asset.asset + $asset.available}" data-prefix="￥" data-duration="2">
+                    <div class="xe-icon">
+                        <i class="linecons-cloud"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>总余额</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter" data-count=".num" data-from="0.00" data-to="{$asset.asset}" data-prefix="￥" data-duration="2">
+                    <div class="xe-icon">
+                        <i class="linecons-paper-plane"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>可提现金额</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter xe-counter-blue" data-count=".num" data-from="0.00" data-to="{$asset.available}" data-prefix="￥" data-duration="2">
+                    <div class="xe-icon">
+                        <i class="linecons-paper-plane"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>待结算金额</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter xe-counter-red" data-count=".num" data-from="0" data-to="{$asset.disable}" data-prefix="￥" data-duration="5">
+                    <div class="xe-icon">
+                        <i class="linecons-lightbulb"></i>
+                    </div>
+                    <div class="xe-label">
+                        <strong class="num">0.00</strong>
+                        <span>待支付金额</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        账户基本信息
+                    </div>
+                    <div class="panel-body">
+                        <div class="same-margin">
+                            <h3>商户UID:<br><small>{$userinfo.uid}</small></h3>
+                            <h3>商户邮箱:<br><small>{$userinfo.username}</small></h3>
+                            <h3>商户名称:<br><small>{$userinfo.realname}</small></h3>
+                            <h3>商户联系:<br><small>{$userinfo.phone}</small></h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+
+                <!-- Default panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        一码支付
+                    </div>
+                    <div class="panel-body">
+                        <img style="width:auto;height:auto;max-width:100%;max-height:100%;" src="{$qrcode}" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="xe-widget xe-conversations">
+                    <div class="xe-bg-icon">
+                        <i class="linecons-comment"></i>
+                    </div>
+                    <div class="xe-header">
+                        <div class="xe-icon">
+                            <i class="linecons-comment"></i>
+                        </div>
+                        <div class="xe-label">
+                            <h4>
+                                最新公告
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="xe-body">
+
+                        <ul class="list-unstyled">
+                            {if $notice}
+                                {foreach $notice as $v }
+                                <li>
+                                    <div class="xe-comment-entry">
+                                        <div class="xe-comment">
+                                            <p>{$v.content}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                {/foreach}
+                            {else /}
+                            <li>
+                                <div class="xe-comment-entry">
+                                    <div class="xe-comment">
+                                        <p>管理员太懒了，没发公告~</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {/if}
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <script type="text/javascript">
+                            $(document).ready(function()
+                            {
+                                function between(randNumMin, randNumMax)
+                                {
+                                    var randInt = Math.floor((Math.random() * ((randNumMax + 1) - randNumMin)) + randNumMin);
+
+                                    return randInt;
+                                }
+                                //array(7) { [0]=> int(1) [1]=> int(1) [2]=> int(0) [3]=> int(0) [4]=> int(0) [5]=> int(0) [6]=> int(0) }
+
+                                $("#order-chart").dxChart({
+                                    dataSource: [
+                                        { day: '周一', order: "<?php echo($chart['0']); ?>",refund:between(0,10)},
+                                        { day: '周二', order: "<?php echo($chart['1']); ?>",refund:between(0,10)},
+                                        { day: '周三', order: "<?php echo($chart['2']); ?>",refund:between(0,10)},
+                                        { day: '周四', order: "<?php echo($chart['3']); ?>",refund:between(0,10)},
+                                        { day: '周五', order: "<?php echo($chart['4']); ?>",refund:between(0,10)},
+                                        { day: '周六', order: "<?php echo($chart['5']); ?>",refund:between(0,10)},
+                                        { day: '周日', order: "<?php echo($chart['6']); ?>",refund:between(0,10)}
+                                    ],
+                                    commonSeriesSettings: {
+                                        argumentField: "day"
+                                    },
+                                    series: [
+                                        { valueField: "order", name: "订单数", color: "#40bbea" },
+                                        { valueField: "refund", name: "退款单", color: "#68b828" }
+                                    ],
+                                    argumentAxis:{
+                                        grid:{
+                                            visible: true
+                                        }
+                                    },
+                                    tooltip:{
+                                        enabled: true
+                                    },
+                                    title: "本周交易折线图",
+                                    legend: {
+                                        verticalAlignment: "bottom",
+                                        horizontalAlignment: "center"
+                                    },
+                                    commonPaneSettings: {
+                                        border:{
+                                            visible: true,
+                                            right: false
+                                        }
+                                    }
+                                });
+                            });
+                        </script>
+                        <div id="order-chart" style="height: 400px; width: 100%; user-select: none;" class="dx-visibility-change-handler">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Imported scripts on this page -->
+        <script src="/assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+        <script src="/assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>
+        <script src="/assets/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="/assets/js/jvectormap/regions/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="/assets/js/xenon-widgets.js"></script>

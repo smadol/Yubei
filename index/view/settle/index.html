@@ -1,0 +1,213 @@
+{layout name="layout" /}
+
+<!-- Imported scripts on this page -->
+<script src="__ENON__/js/rwd-table/js/rwd-table.min.js"></script>
+<script src="__ENON__/js/datatables/js/jquery.dataTables.min.js"></script>
+
+<!-- Imported scripts on this page -->
+<script src="__ENON__/js/datatables/dataTables.bootstrap.js"></script>
+<script src="__ENON__/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+<script src="__ENON__/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+
+<script src="__ENON__/js/table-export/xlsx.core.min.js"></script>
+<script src="__ENON__/js/table-export/blob.js"></script>
+<script src="__ENON__/js/table-export/FileSaver.min.js"></script>
+<script src="__ENON__/js/table-export/tableexport.js"></script>
+
+<div class="page-title">
+
+    <div class="breadcrumb-env pull-left">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="{:url('Order/index')}"><i class="fa-home"></i>首页</a>
+            </li>
+            <li>
+                <a href="">订单管理</a>
+            </li>
+            <li class="active">
+                <strong>订单查询</strong>
+            </li>
+        </ol>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Removing search and results count filter -->
+        <div class="panel panel-default">
+            <div class="panel-heading btn-toolbar">
+                <h3 class="panel-title">订单列表</h3>
+                <div class="btn-group dropdown-btn-group pull-right">
+                    <button class="btn btn-default" onClick ="exportFile()">导出</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <!-- searach -->
+                <div class="btn-toolbar">
+
+                    <form method="get" class="form-inline search-tool" style="margin-bottom:15px;">
+                            <span style="margin-left: 15px;">
+                                <label class="control-label">订单编号</label>
+                                <input type="text" class="form-control" placeholder="订单编号" name="out_trade_no" value="{$Request.get.out_trade_no}" />
+                            </span>
+                        <span style="margin-left: 15px;">
+                                <label class="control-label">时间选择</label>
+                                <input name="time" value="{$Request.get.time}" placeholder="时间选择" type="text" id="field-2" class="form-control daterange" data-format="YYYY-MM-DD"  data-separator="/" />
+                            </span>
+                        <span style="margin-left: 15px;">
+                                <label class="control-label">订单状态</label>
+                                <select class="form-control" name="status">
+                                    <option value="" {eq name="Request.get.status" value=" "} selected="selected" {/eq}>全部</option>
+                                    <option value="0" {eq name="Request.get.status" value="0"} selected="selected" {/eq}>待支付</option>
+                                    <option value="1" {eq name="Request.get.status" value="1"} selected="selected" {/eq}>已支付</option>
+                                </select>
+                            </span>
+
+                        <span style="margin-left: 15px;">
+                                <button class="btn btn-default btn-primary" type="submit" style="margin-top:10px;">
+                                    <span class="fa-search"></span> 搜 索
+                                </button>
+                            </span>
+
+                    </form>
+
+                </div>
+                <!-- searach -->
+
+
+                <script type="text/javascript">
+                    $(document).ready(function($)
+                    {
+                        $("#example-2").dataTable({
+                            dom: "t" + "<'row'<'col-xs-6'i><'col-xs-6'p>>",
+                            dom: "t" + "<'row'<'col-xs-6'><'col-xs-6'>>",
+                            aoColumns: [
+                                // {bSortable: false},
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                {bSortable: false}
+                            ],
+                        });
+
+                        // Replace checkboxes when they appear
+                        var $state = $("#example-2 thead input[type='checkbox']");
+
+                        $("#example-2").on('draw.dt', function()
+                        {
+                            cbr_replace();
+
+                            $state.trigger('change');
+                        });
+
+                        // Script to select all checkboxes
+                        $state.on('change', function(ev)
+                        {
+                            var $chcks = $("#example-2 tbody input[type='checkbox']");
+
+                            if($state.is(':checked'))
+                            {
+                                $chcks.prop('checked', true).trigger('change');
+                            }
+                            else
+                            {
+                                $chcks.prop('checked', false).trigger('change');
+                            }
+                        });
+                    });
+                </script>
+
+                <table class="table table-bordered table-striped" id="支付订单">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>订单号</th>
+                        <th>支付项目</th>
+                        <th>支付内容</th>
+                        <th>交易金额</th>
+                        <th>交易渠道</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="middle-align">
+
+                    {foreach $list as $vo}
+                    <tr>
+                        <td> {$vo.id} </td>
+                        <td> {$vo.out_trade_no} </td>
+                        <td> {$vo.subject} </td>
+                        <td> {$vo.body} </td>
+                        <td> {$vo.amount} </td>
+                        <td> {$vo.channel} </td>
+                        <td>
+                            {if $vo.status == 1}
+                            <span class="label label-warning">待支付</span>
+                            {elseif $vo.status == 2/}
+                            <span class="label label-secondary">已支付</span>
+                            {else /}
+                            <span class="label label-red">已关闭</span>
+                            {/if}
+                        </td>
+                        <td> {$vo.create_time} </td>
+                        </td>
+                    </tr>
+                    {/foreach}
+
+                    </tbody>
+                </table>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="dataTables_info" id="example-3_info" role="status" aria-live="polite"> 共{:count( $list ) } 行数据</div></div>
+                    <div class="col-xs-6">
+                        <div class="dataTables_paginate paging_simple_numbers" id="example-3_paginate">
+                            {$list->render()}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    var export_Status = false;
+    /*导出*/
+    function exportFile(){
+        if(!export_Status){
+            $('.table').tableExport({formats:['xlsx','xls','csv','txt']});
+            export_Status = true;
+        }
+    }
+</script>
+
+<!-- Imported styles on this page -->
+<link rel="stylesheet" href="__ENON__/js/daterangepicker/daterangepicker-bs3.css">
+<link rel="stylesheet" href="__ENON__/js/select2/select2.css">
+<link rel="stylesheet" href="__ENON__/js/select2/select2-bootstrap.css">
+<link rel="stylesheet" href="__ENON__/js/multiselect/css/multi-select.css">
+
+<script src="__ENON__/js/moment.min.js"></script>
+
+
+<!-- Imported scripts on this page -->
+<script src="__ENON__/js/daterangepicker/daterangepicker.js"></script>
+<script src="__ENON__/js/datepicker/bootstrap-datepicker.js"></script>
+<script src="__ENON__/js/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="__ENON__/js/colorpicker/bootstrap-colorpicker.min.js"></script>
+<script src="__ENON__/js/select2/select2.min.js"></script>
+<script src="__ENON__/js/jquery-ui/jquery-ui.min.js"></script>
+<script src="__ENON__/js/selectboxit/jquery.selectBoxIt.min.js"></script>
+<script src="__ENON__/js/tagsinput/bootstrap-tagsinput.min.js"></script>
+<script src="__ENON__/js/typeahead.bundle.js"></script>
+<script src="__ENON__/js/handlebars.min.js"></script>
+<script src="__ENON__/js/multiselect/js/jquery.multi-select.js"></script>

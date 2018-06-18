@@ -1,0 +1,180 @@
+{layout name="layout" /}
+
+<div class="page-title">
+
+    <div class="title-env">
+        <h1 class="title">结算管理</h1>
+        <p class="description">结算申请</p>
+    </div>
+
+    <div class="breadcrumb-env">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="/"><i class="fa-home"></i>商户平台</a>
+            </li>
+            <li>
+
+                <a href="#">结算管理</a>
+            </li>
+            <li class="active">
+
+                <strong>结算申请</strong>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+<section class="profile-env">
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">结算申请</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="settle_apply" method="post" role="form" class="form-horizontal">
+                        <input type="hidden" name="__token__" value="{$Request.token}" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" ></label>
+                            <div class="col-xs-2">
+                                <blockquote class="blockquote blockquote-info">
+                                    <p><strong>商户余额</strong></p>
+                                    <p><small>￥{$asset.available + $asset.asset}</small></p>
+                                </blockquote>
+                            </div>
+                            <div class="col-xs-2">
+                                <blockquote class="blockquote blockquote-success">
+                                    <p><strong>可提现金额</strong></p>
+                                    <p><small>￥{$asset.asset}</small></p>
+                                </blockquote>
+                            </div>
+                            <div class="col-xs-2">
+                                <blockquote class="blockquote blockquote-black">
+                                    <p><strong>待结算金额</strong></p>
+                                    <p><small>￥{$asset.available}</small></p>
+                                </blockquote>
+                            </div>
+                            <div class="col-xs-2">
+                                <blockquote class="blockquote blockquote-warning">
+                                    <p><strong>待支付金额</strong></p>
+                                    <p><small>￥{$asset.disable}</small></p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >商户UID:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" readonly value="{$userinfo.uid|default='100000'}">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">结算账户:</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" id="bank" name="bank">
+                                    {foreach $account as $v}
+                                    <option value="{$v.id}">{$v.bank}({:substr($v.account,-4)})</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">提现金额:</label>
+                            <div class="col-sm-3">
+                                <input type="text" id="amount" name="amount" class="form-control" value="100.00">
+                                <p class="help-block">注：提现金额最小100.00元，含提现手续费,直接在金额中扣除.</p>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">备注：</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" cols="5" name="remarks" id="remarks">提现</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >验证码:</label>
+                            <div class="col-sm-2">
+                                <input type="text" id="code" name="code" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <button id="get_code" type="button" class="btn btn-info btn-icon">
+                                    <i class="fa-cloud"></i>
+                                    <span>获取验证码</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2"></label>
+                            <button id="apply" type="button" class="btn btn-warning btn-icon">
+                                <i class="fa-rocket"></i>
+                                <span>提交申请</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+
+                <script type="text/javascript">
+                    $("#apply").click(function () {
+                        var code = $("#code").val();
+                        if (code == ''){
+                            layer.msg('请输入验证码！');
+                            return false;
+                        }
+                        $.ajax({
+                            url: "{:url('Asset/apply')}",
+                            type: "POST",
+                            data: {
+                                "bank": $("#bank").val(),
+                                "amount": $("#amount").val(),
+                                "remarks": $("#remarks").val(),
+                                "code" :$("#code").val()
+                            },
+                            success: function(response) {
+                                if (response.code == 1){
+                                    layer.msg(response.msg);
+                                    setTimeout(function () {
+                                        window.location.reload();
+                                    },1000)
+                                }else {
+                                    layer.msg(response.msg);
+                                    return false;
+                                }
+                            }
+                        });
+                    });
+
+                    $("#get_code").click(function () {
+                        //询问框
+                        layer.confirm('每日只有五次申请机会，多次无效咯！', {
+                            btn: ['继续','等会'] //按钮
+                        }, function(){
+                            $.ajax({
+                                url: "{:url('Settle/sendSmsCode')}",
+                                success: function(response) {
+                                    if (response.code == 1){
+                                        layer.msg(response.msg);
+                                    }else {
+                                        layer.msg(response.msg);
+                                        return false;
+                                    }
+                                }
+                            });
+                        })
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+
+</section>

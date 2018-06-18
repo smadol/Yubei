@@ -1,0 +1,106 @@
+{layout name="layout" /}
+
+<div class="page-title">
+    <div class="title-env">
+        <h1 class="title">资金管理</h1>
+        <p class="description">新增提现账户</p>
+    </div>
+    <div class="breadcrumb-env">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="/"><i class="fa-home"></i>商户平台</a>
+            </li>
+            <li>
+
+                <a href="#">资金管理</a>
+            </li>
+            <li class="active">
+
+                <strong>新增提现账户</strong>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增提现账户</h3>
+            </div>
+            <div class="panel-body">
+
+                <form id="edit-user" method="post" role="form" class="form-horizontal">
+                    <input type="hidden" value="{$Request.token}" />
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">开户行</label>
+
+                        <div class="col-sm-6">
+                            <select class="form-control" id="bank" name="bank">
+                                <option value="alipay">支付宝</option>
+                                <option value="wxpay">微信</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" >帐户名</label>
+                        <div class="col-sm-6">
+                            <input type="text" id="realname" name="realname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" >帐户号</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" id="account" name="account" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" >备注</label>
+
+                        <div class="col-sm-6">
+                            <input type="text" id="remarks" name="remarks" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group-separator"></div>
+                    <div class="form-group">
+                        <label class="col-sm-2"></label>
+                        <button type="button" id="addbtn" class="btn btn-success btn-icon">
+                            <i class="fa-check"></i>
+                            <span>新增账户</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <script type="text/javascript">
+                $("#addbtn").click(function () {
+                    $.ajax({
+                        url: "{:url('Asset/addaccount')}",
+                        type: "POST",
+                        data: {
+                            "bank": $("#bank").val(),
+                            "name": $("#realname").val(),
+                            "account": $("#account").val(),
+                            "remarks": $("#remarks").val()
+                        },
+                        success: function(response) {
+                            if (response.code == 1){
+                                layer.msg(response.msg);
+                                setTimeout(function () {
+                                    window.location.reload();
+                                },1000)
+                            }else {
+                                layer.msg(response.msg);
+                                return false;
+                            }
+                        }
+                    });
+                });
+            </script>
+        </div>

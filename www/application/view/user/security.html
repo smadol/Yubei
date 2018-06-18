@@ -1,0 +1,118 @@
+{layout name="layout" /}
+
+<div class="page-title">
+
+    <div class="title-env">
+        <h1 class="title">商户中心</h1>
+        <p class="description">商户API信息</p>
+    </div>
+
+    <div class="breadcrumb-env">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="/"><i class="fa-home"></i>商户平台</a>
+            </li>
+            <li>
+
+                <a href="#">商户中心</a>
+            </li>
+            <li class="active">
+
+                <strong>商户API信息</strong>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+<section class="profile-env">
+
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">商户API信息</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="api_edit" method="POST" enctype="multipart/form-data" role="form" class="form-horizontal">
+                        <input type="hidden" name="__token__" value="{$Request.token}" />
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >商户UID:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" readonly value="{$api.uid|default='100000'}">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >支付API接口:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" readonly value="https://api.yubei.cn/pay/unifiedorder">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >商户KEY</label>
+                            <div class="col-sm-6">
+                                <input type="text" name="key" class="form-control" disabled value="{$api.key|default='提交私钥后自动生成'}" >
+                                <p class="help-block">更改私钥的同时，KEY也会自动更改，请注意在SDK也一同更改.</p>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >平台公钥</label>
+                            <div class="col-sm-6"><button type="button">点击下载平台公钥</button></div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >商户公钥</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control autogrow" name="rsakey" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;">{$api.secretkey|default='提交私钥后自动生成'}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2"></label>
+                            <button class="btn btn-success btn-icon">
+                                <i class="fa-check"></i>
+                                <span>修改商户公钥</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modal-->
+        <div class="modal fade" id="rsakey">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Modal Content is Responsive</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group no-margin">
+                                    <label for="field-7" class="control-label">Personal Info</label>
+
+                                    <textarea class="form-control autogrow" id="field-7" placeholder="Write something about yourself"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-info">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

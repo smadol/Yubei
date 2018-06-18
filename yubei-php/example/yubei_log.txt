@@ -1,0 +1,75 @@
+[2018-06-02 08:28:14][debug] 
+[2018-06-03 04:49:16][debug] 
+[2018-06-03 06:29:35][debug] 
+[2018-06-03 06:34:04][debug] 
+[2018-06-03 06:34:53][debug] 
+[2018-06-03 06:36:50][debug] {"error_msg":"Invalid Request.[Request Data And Sign Verify Failure.]","error_code":10001}
+[2018-06-03 06:38:35][debug] {"error_msg":"appid\u4e0d\u80fd\u4e3a\u7a7a","error_code":10000}
+[2018-06-03 06:39:45][debug] 
+[2018-06-03 06:41:12][debug] 
+[2018-06-03 06:41:41][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.[SQLSTATE[42S02]: Base table or view not found: 1146 Table 'yubei.yb_user_asset' doesn't exist]","error_code":80000}
+[2018-06-03 06:42:52][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:43:15][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:43:40][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:46:05][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:47:56][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:49:12][debug] 
+[2018-06-03 06:50:31][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 06:54:35][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:56:08][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:56:56][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 06:58:26][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 07:02:23][debug] 
+[2018-06-03 07:03:30][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 07:05:06][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 07:06:29][debug] {"error_msg":"Create Payment Order Error, Please Try Again Later.","error_code":80000}
+[2018-06-03 07:12:06][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 07:12:12][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 07:13:14][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 07:13:55][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030713523373","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03151349882327447ed57de51796359793","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=8TKEItR"}}}
+[2018-06-03 07:16:11][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030716084159","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03151605685426c6577dd6792246451333","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=q2K3J7G"}}}
+[2018-06-03 07:17:30][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030717274242","client_ip":"::1","amount":"0.01","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx031517251916183f7ae516e31545356268","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=9iMB9WO"}}}
+[2018-06-03 07:20:51][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030720458425","client_ip":"::1","amount":"0.01","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx0315204604528794fc74f1b82438495934","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=WJcOyVm"}}}
+[2018-06-03 07:25:13][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030725091136","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx0315250770322518d60cd8b91008556926","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=aU3SH6F"}}}
+[2018-06-03 07:37:41][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 07:38:08][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030738047659","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03153802485154e72adde89e4080851411","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=MRdGrie"}}}
+[2018-06-03 07:38:56][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030738541086","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03153850340640fe6152f1b03268665286","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=wd5HsE3"}}}
+[2018-06-03 07:38:57][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 07:39:27][debug] {"error_msg":"subject\u4e0d\u80fd\u4e3a\u7a7a","error_code":10000}
+[2018-06-03 07:50:25][debug] {"error_msg":"System Exception.","error_code":999}
+[2018-06-03 07:51:49][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 07:52:28][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 07:55:36][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030755338545","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03155530060184e487afd6740578415578","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=fPtlE8d"}}}
+[2018-06-03 07:55:50][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 07:56:01][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 07:56:06][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030756048360","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03155600343281d30c26aa903989864631","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=MLViWvD"}}}
+[2018-06-03 08:27:18][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806030827111783","client_ip":"::1","amount":"1000","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03162711966354727c86585b3010861376","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=575y39s"}}}
+[2018-06-03 08:44:29][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 09:56:25][debug] {"error_msg":"Invalid Request.[Request Data And Sign Verify Failure.]","error_code":10001}
+[2018-06-03 09:59:28][debug] {"error_msg":"Invalid Request.[Request Data And Sign Verify Failure.]","error_code":10001}
+[2018-06-03 10:01:00][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 10:02:09][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 10:02:37][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 10:03:00][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-03 10:03:27][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806031003241024","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx0318032034178076c984c0cf2451910943","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=2shfaa4"}}}
+[2018-06-03 10:03:43][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-03 10:10:16][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806031003505565","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx03181009156087e6205d47d23994347568","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=mQdEzlR"}}}
+[2018-06-04 06:50:54][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806040650482594","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx04145045004137d1c470a0021343437946","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=1P8CoUP"}}}
+[2018-06-05 11:33:54][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806051133484651","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx051933493598158010ec55ba2031905060","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=nAo1n9Q"}}}
+[2018-06-05 13:06:55][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806051306501558","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx05210649624339b0f674271b2432721233","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=SPq7Hr3"}}}
+[2018-06-05 13:07:38][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806051307364460","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx052107324377461d92feb7763627095993","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=FkYndFL"}}}
+[2018-06-05 13:07:41][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-05 13:07:50][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806051307481007","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx05210744247568837d4193860743337148","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=INtjlcV"}}}
+[2018-06-06 08:45:04][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806060844592825","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx0616450342275657f7e324700373239428","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=11yw3v8"}}}
+[2018-06-11 08:30:16][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-18 14:38:36][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-18 14:40:28][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-18 22:41:02][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-18 22:41:57][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-18 22:42:02][debug] Invalid Response.[Response Data And Sign Verify Failure.]
+[2018-06-18 22:45:25][debug] {"error_msg":"Repeat Order Number.","error_code":80000}
+[2018-06-18 22:46:23][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806182246211395","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx1822460781693718b4feb32a3267309838","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=RLVmiVB"}}}
+[2018-06-18 22:57:36][debug] {"error_msg":"subject\u4e0d\u80fd\u4e3a\u7a7a","error_code":10000}
+[2018-06-18 22:57:56][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806182257408663","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx182257411096386b2eaa18562014707317","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=yKzJ61s"}}}
+[2018-06-18 22:58:26][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806182258246021","client_ip":"::1","amount":"100","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx18225810796456b39e5b35de4264638374","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=oNztcXB"}}}
+[2018-06-18 23:09:56][debug] {"result_code":200,"result_msg":"SUCCESS","charge":{"channel":"WXPAY","order_no":"201806182309491301","client_ip":"::1","amount":"10000","currency":"CNY","subject":"\u652f\u4ed8\u6d4b\u8bd5","body":"\u652f\u4ed8\u6d4b\u8bd5","extra":{"openid":"ow_adnfkewnlalaNLNfBJfghyrkBL"},"credential":{"prepay_id":"wx1823094095031113041ef7630409225636","order_qr":"weixin:\/\/wxpay\/bizpayurl?pr=j3T1zJj"}}}

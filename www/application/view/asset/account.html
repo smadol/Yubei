@@ -1,0 +1,87 @@
+{layout name="layout" /}
+
+<!-- Imported scripts on this page -->
+<script src="/assets/js/rwd-table/js/rwd-table.min.js"></script>
+<script src="/assets/js/datatables/js/jquery.dataTables.min.js"></script>
+
+<!-- Imported scripts on this page -->
+<script src="/assets/js/datatables/dataTables.bootstrap.js"></script>
+<script src="/assets/js/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+<script src="/assets/js/datatables/tabletools/dataTables.tableTools.min.js"></script>
+
+<script src="/assets/js/table-export/xlsx.core.min.js"></script>
+<script src="/assets/js/table-export/blob.js"></script>
+<script src="/assets/js/table-export/FileSaver.min.js"></script>
+<script src="/assets/js/table-export/tableexport.js"></script>
+
+<div class="page-title">
+
+    <div class="title-env">
+        <h1 class="title">资金管理</h1>
+        <p class="description">提现账户管理</p>
+    </div>
+
+    <div class="breadcrumb-env">
+
+        <ol class="breadcrumb bc-1">
+            <li>
+                <a href="/"><i class="fa-home"></i>商户平台</a>
+            </li>
+            <li>
+
+                <a href="#">资金管理</a>
+            </li>
+            <li class="active">
+
+                <strong>提现账户管理</strong>
+            </li>
+        </ol>
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <!-- Removing search and results count filter -->
+        <div class="panel panel-default">
+            <div class="panel-heading btn-toolbar">
+                <h3 class="panel-title">提现账户列表</h3>
+                <div class="btn-group dropdown-btn-group pull-right">
+                    <a href="{:url('user/Asset/addAccount')}" class="btn btn-default">添加账户</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped" id="支付订单">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>开户行</th>
+                        <th>账户名</th>
+                        <th>账户号</th>
+                        <th>默认结算</th>
+                        <th>备注</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="middle-align">
+                    {foreach $list as $vo}
+                    <tr>
+                        <td> {$vo.id} </td>
+                        <td> {$vo.bank} </td>
+                        <td> {$vo.name} </td>
+                        <td> {$vo.account} </td>
+                        <td> {$vo.remarks} </td>
+                        <td>
+                            <button  onclick="editAjaxModal('{$vo.id}')" class="btn btn-icon btn-blue">
+                                <i class="fa-pencil"></i>
+                            </button>
+                            <button onclick="del('{$vo.id}')" class="btn btn-red btn-icon">
+                                <i class="fa-remove"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
+            </div>
+        </div>

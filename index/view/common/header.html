@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Xenon Boostrap Admin Panel" />
+    <meta name="author" content="" />
+    <title>商户平台|余呗支付 - 聚合支付系统服务商</title>
+    <link rel="stylesheet" href="__ENON__/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="__ENON__/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__ENON__/css/bootstrap.css">
+    <link rel="stylesheet" href="__ENON__/css/xenon-core.css">
+    <link rel="stylesheet" href="__ENON__/css/xenon-forms.css">
+    <link rel="stylesheet" href="__ENON__/css/xenon-components.css">
+    <link rel="stylesheet" href="__ENON__/css/xenon-skins.css">
+    <link rel="stylesheet" href="__ENON__/css/custom.css">
+    <script src="__ENON__/js/jquery-1.11.1.min.js"></script>
+</head>
+<body class="page-body">
+<!--加载动画-->
+<div class="page-loading-overlay">
+    <div class="loader-1"></div>
+</div>
+
+<div class="page-container">
+
+    <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+    <!-- Add "fixed" class to make the sidebar fixed always to the browser viewport. -->
+    <!-- Adding class "toggle-others" will keep only one menu item open at a time. -->
+    <!-- Adding class "collapsed" collapse sidebar root elements and show only icons. -->
+    <div class="sidebar-menu toggle-others">
+        <div class="sidebar-menu-inner">
+            <header class="logo-env">
+                <!-- logo -->
+                <div class="logo">
+                    <a href="/" class="logo-expanded">
+                        <img src="__STATIC__/logo-white.png" width="140" alt="" />
+                    </a>
+
+                    <a href="/" class="logo-collapsed">
+                        <img src="__ENON__/images/logo-collapsed@2x.png" width="40" alt="" />
+                    </a>
+                </div>
+                <!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+                <div class="mobile-menu-toggle visible-xs">
+                    <a href="#" data-toggle="mobile-menu">
+                        <i class="fa-bars"></i>
+                    </a>
+                </div>
+            </header>
+            <script>
+                var className = '{$Request.controller}-{$Request.action}'
+                $("."+className).addClass('active');
+                $("."+className).parent().parent().addClass('active open');
+                $("."+className).parent().show();
+            </script>
+            <!--    侧边菜单栏-->
+            <ul id="main-menu" class="main-menu">
+                <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+                <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+                <li>
+                    <a href="{:url('index/dashboard/index')}">
+                        <i class="linecons-desktop"></i>
+                        <span class="title">数据中心</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('index/Order/index')}">
+                        <i class="linecons-mail"></i>
+                        <span class="title">交易管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:url('index/Order/index')}">
+                                <span class="title">支付查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:url('index/Order/index')}">
+                                <span class="title">退款查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:url('index/Order/index')}">
+                                <span class="title">关闭查询</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="linecons-database"></i>
+                        <span class="title">结算管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:url('index/Settle/index')}">
+                                <span class="title">结算查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:url('index/Settle/wait')}">
+                                <span class="title">待结查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:url('index/Settle/apply')}">
+                                <span class="title">结算申请</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="forms-native.html">
+                        <i class="linecons-params"></i>
+                        <span class="title">资金管理</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="forms-native.html">
+                                <span class="title">资产查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="forms-advanced.html">
+                                <span class="title">借款查询</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="forms-wizard.html">
+                                <span class="title">贷款查询</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{:url('index/User/index')}">
+                        <i class="linecons-beaker"></i>
+                        <span class="title">商户中心</span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{:url('index/User/index')}">
+                                <span class="title">基本信息</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{:url('index/User/index')}">
+                                <span class="title">安全信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!--    /侧边菜单栏-->
+        </div>
+
+    </div>
+
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <nav class="navbar user-info-navbar" role="navigation">
+
+            <!-- Left links for user info navbar -->
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+
+                <li class="hidden-sm hidden-xs">
+                    <a href="#" data-toggle="sidebar">
+                        <i class="fa-bars"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Right links for user info navbar -->
+            <ul class="user-info-menu right-links list-inline list-unstyled">
+                <li class="dropdown user-profile">
+                    <a href="#" data-toggle="dropdown">
+                        <img src="__ENON__/images/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+                        <span>
+                            {$userinfo.username}
+                            <i class="fa-angle-down"></i>
+                        </span>
+                    </a>
+
+                    <ul class="dropdown-menu user-profile-menu list-unstyled">
+                        <li class="last">
+                            <a href="{:url('index/Login/quit')}">
+                                <i class="fa-lock"></i>
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" data-toggle="chat">
+                        <i class="fa-comments-o"></i>
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
