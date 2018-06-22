@@ -14,6 +14,7 @@ use app\logic\PrePay;
 use app\validate\GatewayValidate;
 use app\library\exception\ForbiddenException;
 use app\library\exception\OrderException;
+use think\Controller;
 
 /**
  * 所有的支付操作，都需要对输入执行参数校验，避免接口受到攻击。
@@ -23,14 +24,8 @@ use app\library\exception\OrderException;
 　　● 验证签名。签名也是为了防止支付接口被伪造。 一般签名是使用分发给商户的key来对输入参数拼接成的字符串做MD5 Hash或者RSA加密，然后作为一个参数随其他参数一起提交到服务器端。
  * @package app\api\controller
  */
-class Gateway extends Base
+class Gateway extends Controller
 {
-    /**
-     * @var array 前置操作方法列表
-     */
-    protected $beforeActionList = [
-        'signatureVerification' => ['only' => 'gateway,unifiedorder'],//数据签名验证
-    ];
 
     /**
      * @throws ForbiddenException
