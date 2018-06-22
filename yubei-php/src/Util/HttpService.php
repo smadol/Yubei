@@ -5,7 +5,7 @@ namespace Yubei\Util;
 use Yubei\Exception\Exception;
 use Yubei\exception\InvalidResponseException;
 use Yubei\Yubei;
-
+Log::Init();
 class HttpService
 {
     /**
@@ -38,13 +38,14 @@ class HttpService
 
         $header = [
             'Content-Type:application/json; charset='.Yubei::CAHRSET,
+            'restUrl:'.$this->uri,
             'noncestr:'.$noncestr,
             'timestamp:'.$timestamp,
-            'authentication:'.Yubei::getMchId(),
+            'authentication:'.Yubei::getSecretKey(),
             'X-Yubei-Client-User-Agent:'.json_encode([
                 'version:'.Yubei::getApiVersion(),
                 'terminal:'.php_uname(),
-            ]),
+            ])
         ];
 
         $this->header = $header;
@@ -178,6 +179,7 @@ class HttpService
             $res_header = substr($data, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
             $body_data = substr($data, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
             $response_code=intval(curl_getinfo($ch, CURLINFO_HTTP_CODE));
+            Log::DEBUG('Response Data :'.$body_data);
             //返回数据验签
             //验签需要返回数据与返回sign比对校验
             if ($response_code<400){
@@ -240,10 +242,11 @@ class HttpService
                 $_res_sign = trim(substr($loop, 10));
             }
         }
+
         $_to_verify_data = utf8_encode($_res_nonce)
                         ."\n".utf8_encode($_res_timestamp)
                         ."\n".utf8_encode(Yubei::getSecretKey())
-                        ."\n".utf8_encode($body_data);
+                        ."\n".utf8_encode(json_encode(json_decode($body_data,true)['charge']));
         $verify_result = Encryption::verify($_to_verify_data, $_res_sign);
         if(empty($verify_result) || intval($verify_result)!=1){
             throw new InvalidResponseException("Invalid Response.[Response Data And Sign Verify Failure.]");

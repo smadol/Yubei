@@ -31,9 +31,12 @@ class CheckArguments extends ApiCheck
         'signature',
         // 32位随机字符串
         'noncestr',
-        //请求时间戳
-        'timestamp'
+        // 请求时间戳
+        'timestamp',
+        // 请求网关
+        'resturl'
     ];
+
 
     /**
      * 校验公共头参数
@@ -45,6 +48,11 @@ class CheckArguments extends ApiCheck
      */
     public function doCheck(Request $request)
     {
+        // 创建上下文
+        static::createContext();
+        static::set('authentication',$request->header('authentication'));
+        static::set('payload',$request->param());
+
         // 获取所有参数
         $header = $request->header();
         foreach ($this->commonArgus as $v) {

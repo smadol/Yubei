@@ -4,19 +4,25 @@
  * Github: https://github.com/SingleSheep
  */
 
-namespace app\logic\gateway;
-
+namespace app\logic\response;
 use app\logic\Yubei;
-use think\Request;
 
 /**
- * 网关检验抽象类
+ * 报文通知抽象类
  *
  * @author 勇敢的小笨羊
  * @package app\logic\gateway
  */
-abstract class ApiCheck extends Yubei
+abstract class ApiSend extends Yubei
 {
+
+    /**
+     * 通知报文
+     *
+     * @var object
+     */
+    protected $payload;
+
     /**
      * 下一个check实体
      *
@@ -25,20 +31,20 @@ abstract class ApiCheck extends Yubei
     private $nextCheckInstance;
 
     /**
-     * 校验方法
+     * 构建方法
      *
-     * @param Request $request 请求对象
+     * @param array $payload 支付对象
      */
-    abstract public function doCheck(Request $request);
+    abstract public function doBuild(array $payload);
 
     /**
      * 设置责任链上的下一个对象
      * @author 勇敢的小笨羊
      *
-     * @param ApiCheck $check
-     * @return ApiCheck
+     * @param ApiSend $check
+     * @return ApiSend
      */
-    public function setNext(ApiCheck $check)
+    public function setNext(ApiSend $check)
     {
         $this->nextCheckInstance = $check;
         return $check;
@@ -48,14 +54,14 @@ abstract class ApiCheck extends Yubei
      * 启动
      *
      * @author 勇敢的小笨羊
-     * @param Request $request 请求对象
+     * @param array $payload 支付对象
      */
-    public function start(Request $request)
+    public function start(array $payload)
     {
-        $this->doCheck($request);
+        $this->doBuild($payload);
         // 调用下一个对象
         if (! empty($this->nextCheckInstance)) {
-            $this->nextCheckInstance->start($request);
+            $this->nextCheckInstance->start($payload);
         }
     }
 }

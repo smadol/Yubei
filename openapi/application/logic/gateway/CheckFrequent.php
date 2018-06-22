@@ -41,7 +41,7 @@ class CheckFrequent extends ApiCheck
     public function doCheck(Request $request)
     {
         // 过期验证
-        if (microtime(true)*1000 - $request->header('timestamp') > 5000) {
+        if ((float)time() - (float)$request->header('timestamp') >= 2*60*1000) {
             throw new ForbiddenException(['code'=>401, 'msg'=>'Expired request']);
         }
         $key = 'Gateway-client-ip:' . $request->ip();

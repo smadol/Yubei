@@ -31,6 +31,7 @@ class Gateway extends Controller
      * @throws ForbiddenException
      */
     public function gateway(){
+
         throw new ForbiddenException();
     }
     /**
@@ -69,7 +70,7 @@ class Gateway extends Controller
             ]
         ];
         //支付对象返回
-        ApiRespose::getInstance()->returnmsg($chargeRespose);
+        ApiRespose::send($chargeRespose);
     }
 
 }

@@ -16,7 +16,9 @@ return [
         'app\\behavior\\CORS'
     ],
     // 应用开始
-    'app_begin'    => [],
+    'app_begin'    => [
+        'app\\logic\\ApiRequest'
+    ],
     // 模块初始化
     'module_init'  => [],
     // 操作开始执行

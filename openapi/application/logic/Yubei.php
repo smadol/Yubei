@@ -6,26 +6,125 @@
 
 namespace app\logic;
 
-use app\model\Api;
+use app\library\exception\ParameterException;
+use think\Controller;
 
-class Yubei
+abstract class Yubei extends Controller
 {
     /**
-     * 默认返回资源类型
-     * @var string
+     * 请求参数
+     *
+     * @var array
      */
-    protected static $restDefaultType = 'json';
-    /**
-     * 支付路由
-     * @var string
-     */
-    public static $uri = 'http://api.yubei.cn/pay/unifiedorder';
+    protected static $context = [];
 
     /**
-     * 查出来的商户KEY
-     * @var null
+     * @var
      */
-    protected static $secretKey = null;
+    protected static $conId;
+
+    /**
+     * 创建当前请求上下文
+     *
+     * @author 勇敢的小笨羊
+     * @throws ParameterException
+     */
+    public static function createContext(){
+        $conId = self::$conId = self::createUniqid();
+        if (!isset(static::$context[$conId])){
+            static::$context[$conId] = [];
+        }else{
+            throw new ParameterException(['msg'=>'Create context failed,cannot create a duplicate context']);
+        }
+    }
+
+
+    /**
+     * 销毁当前请求上下文
+     *
+     * @author 勇敢的小笨羊
+     * @throws ParameterException
+     */
+    public static function destoryContext(){
+        if (isset(static::$context[self::$conId])){
+            unset(static::$context[self::$conId]);
+        }else{
+            throw new ParameterException(['msg'=>'Destory context failed,cannot destory a duplicate context']);
+        }
+    }
+
+    /**
+     * 判断当前请求上下文是否存在
+     * @return boolean
+     */
+    public static function exsits()
+    {
+        return isset(static::$context[self::createUniqid()]);
+    }
+    /**
+     * 获取上下文数据
+     * @param string $name
+     * @param mixed $default
+     * @return mixed
+     */
+    public static function get($name, $default = null)
+    {
+        if(!isset(static::$context[self::$conId]))
+        {
+            throw new \RuntimeException('get context data failed, current context is not found');
+        }
+        if(isset(static::$context[self::$conId][$name]))
+        {
+            return static::$context[self::$conId][$name];
+        }
+        else
+        {
+            return $default;
+        }
+    }
+    /**
+     * 设置上下文数据
+     * @param string $name
+     * @param mixed $value
+     * @return void
+     */
+    public static function set($name, $value)
+    {
+        if(!isset(static::$context[self::$conId]))
+        {
+            throw new \RuntimeException('set context data failed, current context is not found');
+        }
+        static::$context[self::$conId][$name] = $value;
+    }
+    /**
+     * 获取当前上下文
+     * @return array
+     */
+    public static function getContext()
+    {
+        if(!isset(static::$context[self::$conId]))
+        {
+            throw new \RuntimeException('get context failed, current context is not found');
+        }
+        return static::$context[self::$conId];
+    }
+    /**
+     * 获取当前的服务器对象
+     */
+    public static function getServer()
+    {
+        return static::get('request')->getServerInstance();
+    }
+
+    /**
+     * 在当前服务器上下文中获取Bean对象
+     * @param string $name
+     * @return mixed
+     */
+    public static function getBean($name, &$params)
+    {
+        return static::getServer()->getBean($name, $params);
+    }
 
     /**
      * 获取当前时间的毫秒数
@@ -61,20 +160,5 @@ class Yubei
         return $uniqid;
     }
 
-    /**
-     * 查找商户secretKey
-     * @param $uid
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
-    protected static function getMchSecretKey($uid){
-        //取出用户KEY 进行对比加密
-        $secretKey =(new Api())
-            ->where(['uid'=>$uid])
-            ->field('key')
-            ->find()->toArray()['key'];
-        self::$secretKey = $secretKey;
-    }
 
 }

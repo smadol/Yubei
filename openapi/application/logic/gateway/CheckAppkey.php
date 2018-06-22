@@ -27,15 +27,12 @@ class CheckAppkey extends ApiCheck
         // 获取app key Map
         $appKeyMap = (array)Api::appKeyMap();
 
-        // app key
-        $appKey    = $request->header('authentication');
-
-        if (in_array($appKey,$appKeyMap)) {
+        if (in_array(static::get('authentication'),$appKeyMap)) {
             return;
         }
         throw new ParameterException([
             'code'=> 404,
-            'msg'=>'app_key is not found'
+            'msg'=>'Appid Key is not found'
         ]);
     }
 }
