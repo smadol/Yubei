@@ -36,7 +36,6 @@ class Gateway extends Controller
     }
     /**
      * 扫码支付对象
-     * @throws ForbiddenException
      * @throws OrderException
      * @throws \app\library\exception\ParameterException
      * @throws \app\library\exception\UserException
@@ -49,28 +48,8 @@ class Gateway extends Controller
         $validate->goCheck();
         //传入预支付订单信息
         $charge = PrePay::getInstance($preorder)->prepay();
-        //返回支付对象
-        return $this->chargeRespose($preorder,$charge);
-    }
-
-    //支付对象参数过滤
-    private function chargeRespose($preorder,$charge){
-        $chargeRespose = [
-            'channel'=>$preorder['channel'],
-            'order_no'=>$preorder['out_trade_no'],
-            'client_ip'=>$preorder['client_ip'],
-            'amount'=>$preorder['amount'],
-            'currency'=>$preorder['currency'],
-            'subject'=>$preorder['subject'],
-            'body'=>$preorder['body'],
-            'extra'=>$preorder['extparam'],
-            'credential'=>[
-                'prepay_id'=>$charge['prepay_id'],
-                'order_qr'=>$charge['code_url']
-            ]
-        ];
         //支付对象返回
-        ApiRespose::send($chargeRespose);
+        ApiRespose::send($charge);
     }
 
 }

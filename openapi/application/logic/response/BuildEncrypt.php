@@ -17,9 +17,9 @@ class BuildEncrypt extends ApiSend
      * 构建签名时间戳与随机字符串
      *
      * @author 勇敢的小笨羊
-     * @param array $chargeRespose
+     * @param array $chargeRespose 第三方返回的支付信息包
      */
-    public function doBuild(array $chargeRespose)
+    public function doBuild($chargeRespose)
     {
         $noncestr  =    self::createUniqid();
         $timestamp =    self::getMicroTime();

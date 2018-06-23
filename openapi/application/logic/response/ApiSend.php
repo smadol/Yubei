@@ -33,9 +33,9 @@ abstract class ApiSend extends Yubei
     /**
      * 构建方法
      *
-     * @param array $payload 支付对象
+     * @param array $chargeRespose 支付对象
      */
-    abstract public function doBuild(array $payload);
+    abstract public function doBuild($chargeRespose);
 
     /**
      * 设置责任链上的下一个对象
@@ -54,14 +54,14 @@ abstract class ApiSend extends Yubei
      * 启动
      *
      * @author 勇敢的小笨羊
-     * @param array $payload 支付对象
+     * @param array $chargeRespose 支付对象
      */
-    public function start(array $payload)
+    public function start($chargeRespose)
     {
-        $this->doBuild($payload);
+        $this->doBuild($chargeRespose);
         // 调用下一个对象
         if (! empty($this->nextCheckInstance)) {
-            $this->nextCheckInstance->start($payload);
+            $this->nextCheckInstance->start($chargeRespose);
         }
     }
 }

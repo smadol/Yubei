@@ -19,7 +19,7 @@ class BuildHeader extends ApiSend
      * @author 勇敢的小笨羊
      * @param array $chargeRespose
      */
-    public function doBuild(array $chargeRespose)
+    public function doBuild($chargeRespose)
     {
         // 构建头信息
         $header = [

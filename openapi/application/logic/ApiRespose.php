@@ -6,11 +6,12 @@
 
 namespace app\logic;
 
+use app\logic\response\BuildCharge;
 use app\logic\response\BuildEncrypt;
 use app\logic\response\BuildHeader;
 use app\logic\response\BuildResponse;
 use app\logic\response\BuildSign;
-use think\Log;
+
 
 /**
  * API响应
@@ -22,10 +23,12 @@ class ApiRespose extends Yubei
     /**
      * 响应数据 对象链
      * @author 勇敢的小笨羊
-     * @param $chargeRespose
+     * @param array $chargeRespose 第三方返回的支付信息包
      */
     public static function send($chargeRespose){
 
+        // 初始化一个：相应对象Charge
+        $buildCharge      =  new BuildCharge();
         // 初始化一个：签名校验的Encrypt
         $buildEncrypt     =  new BuildEncrypt();
         // 初始化一个：签名校验的Sign
@@ -36,11 +39,12 @@ class ApiRespose extends Yubei
         $buildResponse    =  new BuildResponse();
 
         // 构成对象链
-        $buildEncrypt->setNext($buildSign)
-                        ->setNext($buildHeader)
-                            ->setNext($buildResponse);
+        $buildCharge->setNext($buildEncrypt)
+                    ->setNext($buildSign)
+                    ->setNext($buildHeader)
+                    ->setNext($buildResponse);
 
         // 启动Send
-        $buildEncrypt->start($chargeRespose);
+        $buildCharge->start($chargeRespose);
     }
 }
