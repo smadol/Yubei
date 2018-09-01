@@ -11,9 +11,15 @@
 
 use think\Route;
 
-Route::miss('api/Miss/index');//路由错误返回
+//Route::miss('api/Miss/index');//路由错误返回
 Route::rule('pay/gateway','Gateway/gateway');//网关支付
-Route::post('pay/unifiedorder','Gateway/unifiedorder','POST');//网关支付
-Route::post('pay/orderquery','Gateway/orderquery','POST');//网关支付
+Route::post('pay/unifiedorder','Gateway/unifiedorder');//网关支付
+Route::get('pay/orderquery','Gateway/orderquery');//网关支付
 
-Route::get('que/hello','Que/actionWithHelloJob');
+/**
+ * Notify
+ */
+Route::post('notify/qq','Notify/qqNotify');//QQ异步通知
+Route::post('notify/wx','Notify/wxNotify');//微信异步通知
+Route::post('notify/ali','Notify/aliNotify');//支付宝异步通知
+Route::get('notify/ali_r','Notify/aliRedirect');//支付宝同步回调

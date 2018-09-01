@@ -8,10 +8,10 @@
  */
 return [
     'qpay' => [
-        'mch_id'          => '149101',              // QQ钱包分配的商户号
-        'sub_mch_id'      => '1490101',              // Qpay商户号
+        'mch_id'          => '1499660101',              // QQ钱包分配的商户号
+        'sub_mch_id'      => '1499660101',              // Qpay商户号
         'notify_url'      => 'https://openapi.98imo.com/qqpay/notify',
-        'key'             => 'a50e7350b254e62a',                // Qpay支付签名秘钥
+        'key'             => 'a50e731409bada470b8f2d50b254e62a',                // Qpay支付签名秘钥
         //'cert_client'     => CRET_PATH.'./qpay/apiclient_cert.pem',
         //'cert_key'        => CRET_PATH.'./qpay/apiclient_key.pem',
         'log' => [ // optional

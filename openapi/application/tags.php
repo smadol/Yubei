@@ -13,11 +13,12 @@
 return [
     // 应用初始化
     'app_init'     => [
+        'app\\behavior\\InitApp',
         'app\\behavior\\CORS'
     ],
     // 应用开始
     'app_begin'    => [
-        'app\\logic\\ApiRequest'
+        'app\\service\\ApiRequest'
     ],
     // 模块初始化
     'module_init'  => [],

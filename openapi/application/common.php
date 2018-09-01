@@ -12,6 +12,19 @@
 // 应用公共文件
 
 /**
+ * 生成支付订单号
+ * @return string
+ */
+function create_order_no()
+{
+    $yCode = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
+    $orderSn =
+        $yCode[intval(date('Y')) - 2018] . date('YmdHis') . strtoupper(dechex(date('m')))
+        . date('d') . sprintf('%02d', rand(0, 999));
+    return $orderSn;
+}
+
+/**
  * @param $url
  * @param $rawData
  * @param string $target
@@ -48,4 +61,26 @@ function curl_post_raw($url, $rawData, $target = 'FAIL', $retry=6, $sleep = 3 ,$
     }
     curl_close($ch);
     return $output;
+}
+/**
+ * 字符串替换
+ * @param string $str
+ * @param string $target
+ * @param string $content
+ *
+ * @return mixed
+ */
+function sr($str = '', $target = '', $content = '')
+{
+
+    return str_replace($target, $content, $str);
+}
+
+/**
+ * 字符串前缀验证
+ */
+function str_prefix($str, $prefix)
+{
+
+    return strpos($str, $prefix) === 0 ? true : false;
 }

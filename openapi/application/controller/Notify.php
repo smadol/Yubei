@@ -9,44 +9,41 @@
 
 namespace app\controller;
 
-use app\service\YuPayNotify;
 use Yansongda\Pay\Pay;
 
-class Notify extends Base
+class Notify extends BaseController
 {
     /**
      * Qpay Notify
-     * @throws \Yansongda\Pay\Exceptions\InvalidSignException
+     * @author 勇敢的小笨羊
+     * @return mixed
      */
     public function qqNotify()
     {
-        $notify = new YuPayNotify();
         $qpay = Pay::qpay(config('qq.qpay'));
-        $notify->handle($qpay->verify());
+        $this->logicNotify->handle($qpay->verify());
         return $qpay->success()->send();
     }
 
     /**
      * AliPay Redirect
-     * @throws \Yansongda\Pay\Exceptions\InvalidSignException
-     * @throws \think\exception\DbException
+     * @author 勇敢的小笨羊
      */
     public function aliRedirect()
     {
-        $notify = new YuPayNotify();
-        $this->redirect($notify->backBusiness());
+        $this->redirect($this->logicNotify->backBusiness());
     }
 
     /**
      * AliPay Notify
-     * @return string
+     * @author 勇敢的小笨羊
+     * @return \Symfony\Component\HttpFoundation\Response
      * @throws \Yansongda\Pay\Exceptions\InvalidSignException
      */
     public function aliNotify()
     {
-        $notify = new YuPayNotify();
         $alipay = Pay::alipay(config('ali.alipay'));
-        $notify->handle($alipay->verify());
+        $this->logicNotify->handle($alipay->verify());
         return $alipay->success()->send();
 
     }
@@ -58,9 +55,8 @@ class Notify extends Base
      */
     public function wxNotify()
     {
-        $notify = new YuPayNotify();
         $wxpay = Pay::wechat(config('wx.wechat'));
-        $notify->handle($wxpay->verify());
+        $this->logicNotify->handle($wxpay->verify());
         return $wxpay->success()->send();
     }
 }

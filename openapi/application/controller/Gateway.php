@@ -9,12 +9,9 @@
 
 namespace app\controller;
 
-use app\logic\ApiRespose;
-use app\logic\PrePay;
-use app\validate\GatewayValidate;
+use app\service\ApiRespose;
 use app\library\exception\ForbiddenException;
-use app\library\exception\OrderException;
-use think\Controller;
+
 
 /**
  * 所有的支付操作，都需要对输入执行参数校验，避免接口受到攻击。
@@ -24,32 +21,23 @@ use think\Controller;
 　　● 验证签名。签名也是为了防止支付接口被伪造。 一般签名是使用分发给商户的key来对输入参数拼接成的字符串做MD5 Hash或者RSA加密，然后作为一个参数随其他参数一起提交到服务器端。
  * @package app\api\controller
  */
-class Gateway extends Controller
+class Gateway extends BaseController
 {
 
     /**
      * @throws ForbiddenException
      */
     public function gateway(){
-
         throw new ForbiddenException();
     }
+
     /**
-     * 扫码支付对象
-     * @throws OrderException
-     * @throws \app\library\exception\ParameterException
-     * @throws \app\library\exception\UserException
-     * @throws \think\exception\DbException
+     * 统一扫码支付
+     * @author 勇敢的小笨羊
      */
     public function unifiedorder(){
-        $preorder = $this->request->post();
-        //参数完整性
-        $validate = new GatewayValidate();
-        $validate->goCheck();
-        //传入预支付订单信息
-        $charge = PrePay::getInstance($preorder)->prepay();
-        //支付对象返回
-        ApiRespose::send($charge);
+        //传入预支付订单信息 => 支付对象返回
+        ApiRespose::send($this->logicPrePay->pay($this->request->post()));
     }
 
 }

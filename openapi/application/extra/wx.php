@@ -8,11 +8,11 @@
  */
 return [
     'wechat' => [
-        'app_id'          => 'wx1c33ee1',      // 微信公众号 APPID
-        'miniapp_id'      => 'wx163ee1',      // 小程序 APPID
-        'mch_id'          => '14822',              // 微信商户号
+        'app_id'          => 'wx1c32cda245563ee1',      // 微信公众号 APPID
+        'miniapp_id'      => 'wx1c32cda245563ee1',      // 小程序 APPID
+        'mch_id'          => '1493758822',              // 微信商户号
         'notify_url'      => 'https://openapi.98imo.com/wxpay/notify',
-        'key'             => '06c561c357b6db',  // 微信支付签名秘钥
+        'key'             => '06c56a89949d617def52f371c357b6db',  // 微信支付签名秘钥
         //'cert_client'     => CRET_PATH.'./wxpay/apiclient_cert.pem',
         //'cert_key'        => CRET_PATH.'./wxpay/apiclient_key.pem',
         'log' => [ // optional
