@@ -12,6 +12,7 @@ use app\library\exception\OrderException;
 
 class Orders extends BaseModel
 {
+    protected $table = 'yb_pay_order';
 
     /**
      * @author 勇敢的小笨羊
@@ -78,5 +79,19 @@ class Orders extends BaseModel
             ]);
         }
         return $order;
+    }
+
+    /**
+     * @author 勇敢的小笨羊
+     * @param $outTradeOrderNo
+     * @return Orders|bool
+     * @throws \think\exception\DbException
+     */
+    public function getOutTradeOrder($outTradeOrderNo){
+        $order = self::get(['out_trade_no' => $outTradeOrderNo]);
+        if ($order) {
+            return $order;
+        }
+        return false;
     }
 }

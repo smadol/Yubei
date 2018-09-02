@@ -18,7 +18,7 @@ use Yansongda\Pay\Pay as Service;
 class Pay extends BaseLogic
 {
     private $orderNo;
-
+    private $channel;
 
     /**
      * @author 勇敢的小笨羊
@@ -29,10 +29,10 @@ class Pay extends BaseLogic
     {
         //检查支付状态
         $order = $this->modelOrders->checkOrderValid($orderNo);
-        $this->channel = Channel::getChannel($order['channel']);
+        $this->channel = $this->modelChannel->getChannel($order['channel']);
         Log::record("PAY_ORDER: [{$order}]");
         //创建支付预订单
-        return $this->preOrder($orderNo);
+        return $this->preOrder($order);
     }
 
     /**

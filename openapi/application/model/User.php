@@ -8,8 +8,21 @@
 namespace app\model;
 
 
-class User extends Base
+class User extends BaseModel
 {
 
+    /**
+     * @author 勇敢的小笨羊
+     * @param $uid
+     * @return User|bool
+     * @throws \think\exception\DbException
+     */
+    public function getUser($uid){
+        $user = self::get(['uid' => $uid]);
+        if ($user) {
+            return $user;
+        }
+        return false;
+    }
 
 }

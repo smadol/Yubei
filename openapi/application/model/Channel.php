@@ -6,12 +6,10 @@
 
 namespace app\model;
 
-
 use think\Cache;
 use think\Log;
-use think\Model;
 
-class Channel extends Model
+class Channel extends BaseModel
 {
 
     /**
@@ -19,7 +17,8 @@ class Channel extends Model
      *
      * @author 勇敢的小笨羊
      * @param string $Cnel 支付渠道 WXPAY ALIPAY QQPAY
-     * @return array|mixed
+     * @return mixed
+     * @throws \think\exception\DbException
      */
     public static function getChannel($Cnel){
         //获取缓存支付渠道数据

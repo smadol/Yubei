@@ -10,10 +10,11 @@
 namespace app\model;
 
 
-class Asset extends Base
+class Asset extends BaseModel
 {
 
     /**
+     * @author 勇敢的小笨羊
      * @param $uid
      * @param $amount
      * @return int|true
