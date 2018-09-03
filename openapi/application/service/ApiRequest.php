@@ -23,7 +23,7 @@ use think\Request;
 class ApiRequest extends Rest
 {
     public function appBegin(){
-        Log::record(microtime());
+        Log::notice("开始时间：".microtime());
         // 初始化一个：访问频次校验的check
         $checkFrequent    =  new CheckFrequent();
         // 初始化一个：必传参数校验的check
@@ -39,6 +39,6 @@ class ApiRequest extends Rest
             ->setNext($checkSign);
 
         // 启动网关
-        $checkArguments->start(Request::instance());
+        $checkFrequent->start(Request::instance());
     }
 }

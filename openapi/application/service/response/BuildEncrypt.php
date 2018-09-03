@@ -23,7 +23,7 @@ class BuildEncrypt extends ApiSend
         static::set('noncestr',$noncestr  =  self::createUniqid());
         static::set('timestamp',$timestamp =  self::getMicroTime());
         // 日志记录
-        Log::record('Sign Noncestr:'.$noncestr.'Sign Timestamp:'.$timestamp);
+        Log::notice('Sign Noncestr:'.$noncestr.'Sign Timestamp:'.$timestamp);
     }
 
 }

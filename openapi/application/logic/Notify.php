@@ -12,7 +12,7 @@ namespace app\logic;
 
 use app\logic\notify\PayReply;
 use app\logic\notify\PayUtil;
-use app\model\Asset;
+use app\model\Balance;
 use app\model\Orders;
 use app\model\Transaction;
 use think\Db;
@@ -97,8 +97,11 @@ class Notify extends BaseLogic
      */
     private function changeWalletData($uid, $fee)
     {
-        (new Asset())->where(['uid' => $uid])->setInc('available', $fee);
-        (new Asset())->where(['uid' => $uid])->setDec('disable',$fee);
+        $model = new Balance();
+        //支付成功  写入待结算金额
+        $model->where(['uid'=> $uid])->setInc('available',$fee );
+        //支付成功  扣除待支付金额
+        $model->where(['uid'=> $uid])->setDec('disable', $fee);
     }
 
     /**

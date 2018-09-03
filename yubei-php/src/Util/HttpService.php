@@ -174,6 +174,7 @@ class HttpService
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->header);
         //发送请求读取输数据
         $data = curl_exec($ch);
+        var_dump($data);die;
         try{
             $body_data = null;
             $res_header = substr($data, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
@@ -188,11 +189,9 @@ class HttpService
         }catch (Exception $e) {
             return $e->getMessage();
         }
-        finally
-        {
-            curl_close($ch);
-        }
+        curl_close($ch);
 
+        var_dump($body_data);die;
         return json_decode($body_data,true);
     }
 

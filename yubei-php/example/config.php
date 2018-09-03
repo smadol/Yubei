@@ -10,9 +10,9 @@ const MCH_ID = '100001';
 //MCH KEY
 const MCH_KEY = '984423e02a22f79457111e84a3dcd369';
 //NOTIFY URL
-const NOTIFY_URL    =   'https://yubei.cn/notify.php';
+const NOTIFY_URL    =   'https://sirhe.cn/notify.php';
 //RETURN_URL
-const RETURN_URL    =   'https://yubei.cn/return.php';
+const RETURN_URL    =   'https://sirhe.cn/return.php';
 
 \Yubei\Yubei::setMchId(MCH_ID);         // 设置 MCH ID
 \Yubei\Yubei::setSecretKey(MCH_KEY);  // 设置 MCH KEY

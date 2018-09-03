@@ -25,13 +25,13 @@ class BuildResponse extends ApiSend
         $return['result_msg'] = 'SUCCESS';
         $return['charge'] =  static::get('ApiResposeData');
 
-        Log::record('Response Data:'.json_encode($return));
+        Log::notice('Response Data:'.json_encode($return));
 
         //签名及数据返回
         $response = Response::create(json_encode($return))->header(static::get('header'));
         // 销毁请求上下文
         static::destoryContext();
-        Log::record(microtime());
+        Log::notice("结束时间：".microtime());
         // 抛数据
         throw new HttpResponseException($response);
     }

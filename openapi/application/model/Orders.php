@@ -12,7 +12,6 @@ use app\library\exception\OrderException;
 
 class Orders extends BaseModel
 {
-    protected $table = 'yb_pay_order';
 
     /**
      * @author 勇敢的小笨羊
@@ -41,7 +40,7 @@ class Orders extends BaseModel
             //  余额 = 可用余额（可提现金额） + 冻结余额（待结算金额） =》 未支付金额每日清算
             //   可用余额是从冻结余额转入的
             //写入待支付金额
-            Asset::IncDis($orderData['mchid'],$orderData['amount']);
+            //Balance::IncDis($orderData['mchid'],$orderData['amount']);
             $result = $this->logicPay->pay($order->trade_no);  //支付
             Db::commit();
             return $result;

@@ -27,9 +27,9 @@ class PrePay extends BaseLogic
      * @throws ParameterException
      * @throws UserException
      */
-    public function pay($orderData){
+    public function orderPay($orderData){
         // 验证
-        $this->validateGateway->gocheck();
+        $this->validateUnifiedorder->gocheck();
         // 是否重复订单
         if(!is_null($orderData)){
             //唯一订单号校验
@@ -55,5 +55,11 @@ class PrePay extends BaseLogic
         throw new ParameterException([
             'msg'   => 'Error Of Order Parameter.'
         ]);
+    }
+
+    public function orderQuery($queryData){
+        halt($queryData);
+        // 验证
+        $this->validateQueryorder->gocheck();
     }
 }

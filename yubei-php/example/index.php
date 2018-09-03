@@ -28,30 +28,30 @@ date_default_timezone_set('PRC');
                         <form id="payment" method="post" action="order.php" target="_blank" >
                             <input hidden="hidden" name="action" value="gateway" />
                             <div class="form-group row">
-                                <label class="col-xs-12 col-md-2 form-control-label addfund-bt">商品名称: </label>
-                                <div class="col-md-9 col-xs-12">
+                                <label class="col-xs-3 col-md-2 form-control-label addfund-bt">商品名称: </label>
+                                <div class="col-md-4 col-xs-6">
                                     <input type="text" name="subject" id="subject" value="支付测试" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-xs-12 col-md-2 form-control-label addfund-bt">支付单号: </label>
-                                <div class="col-md-9 col-xs-12">
+                                <label class="col-xs-3 col-md-2 form-control-label addfund-bt">支付单号: </label>
+                                <div class="col-md-4 col-xs-6">
                                     <input type="text" name="out_trade_no" id="out_trade_no" value="<?php echo date('YmdHis').mt_rand(1000,9999) ?>" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-xs-12 col-md-2 form-control-label addfund-bt">支付金额: </label>
-                                <div class="col-md-9 col-xs-12">
+                                <label class="col-xs-3 col-md-2 form-control-label addfund-bt">支付金额: </label>
+                                <div class="col-md-4 col-xs-6">
                                     <input type="text" name="amount" id="total_fee" value="100" class="form-control" required="">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-xs-12 col-md-2 form-control-label addfund-bt">支付方式: </label>
-                                <div class="col-md-9 col-xs-12">
+                                <label class="col-xs-3 col-md-2 form-control-label addfund-bt">支付方式: </label>
+                                <div class="col-md-9 col-xs-6">
                                     <input type="hidden" id="channel" name="channel" value="">
                                     <ul>
                                         <li class="local-item col-sm-3 p-l-0 p-r-0 pay_method m-r-10">
-                                            <a><div class="weixinpay" value="WXPAY"></div><p class="hk-bt"></p></a>
+                                            <a><div class="weixinpay" value="wx_scan"></div><p class="hk-bt"></p></a>
                                         </li>
                                         <script type="text/javascript">
                                             $(function(){
@@ -68,8 +68,8 @@ date_default_timezone_set('PRC');
 
                                     </ul>
                                 </div>
-                                <label class="col-xs-12 col-md-2 form-control-label m-t-10"> </label>
-                                <div class="col-md-9 col-xs-12  m-t-15">
+                                <label class="col-xs-6 col-md-2 form-control-label m-t-10"> </label>
+                                <div class="col-md-9 col-xs-6  m-t-15">
                                     <button type="submit" class="btn btn-animate btn-animate-side btn-success">支付</button>
                                 </div>
                             </div>

@@ -33,10 +33,10 @@ body {
   background: url(../images/alipay.png) no-repeat;
   background-size: cover;
 }
-.header .logo.alipay {
+.header .logo .alipay {
   background-image: url(../images/alipay.png);
 }
-.header .logo.wechat {
+.header .logo .wechat {
   width: 130px;
   background-image: url(../images/wechat.png);
 }

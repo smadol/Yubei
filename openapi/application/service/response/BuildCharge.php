@@ -34,7 +34,7 @@ class BuildCharge extends ApiSend
                 'order_qr'=>$chargeRespose['code_url']
             ]
         ];
-        Log::record('Api Respose Data:'.json_encode($ApiResposeData));
+        Log::notice('Api Respose Data:'.json_encode($ApiResposeData));
         // 设置上下文支付包
         static::set('ApiResposeData',$ApiResposeData);
     }

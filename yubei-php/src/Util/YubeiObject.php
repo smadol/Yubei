@@ -25,6 +25,8 @@ class YubeiObject
     protected static function _request($url = null, $params = null)
     {
         $opts = self::_validateParams($params);
+        Log::Init();
+        Log::DEBUG('Params :'.json_encode($params));
         $respose = new HttpService();
         if (empty($opts)){
             return $respose->get($url, null, 5);

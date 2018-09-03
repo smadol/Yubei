@@ -8,38 +8,21 @@ use Yubei\Util\Log;
 require dirname(__FILE__) . '/../init.php';
 // 示例配置文件，测试请根据文件注释修改其配置
 require dirname(__FILE__) . '/config.php';
-
-class Charge
-{
-
-    /**
-     * @throws \Yubei\Exception\Exception
-     * @throws \Yubei\exception\AuthorizationException
-     * @throws \Yubei\exception\InvalidRequestException
-     */
-    public function charge(){
-        $data = [
-            "out_trade_no" => $_POST['out_trade_no'],
-            "subject" => $_POST['subject'],
-            "body" => $_POST['subject'],
-            "amount" =>$_POST['amount'],
-            "currency" =>'CNY',
-            "channel" => strtoupper($_POST['channel']), //支付方式
-            "extparam" => [
-                "openid" => "ow_adnfkewnlalaNLNfBJfghyrkBL"
-            ], //支付附加参数
-        ];
-        // 创建支付订单对象
-        $order = \Yubei\Charge::create($data);
-        Log::Init();
-        Log::DEBUG($order);
-        return $order;
-    }
-}
-
-$chargeObj = new Charge();
-$order = $chargeObj->charge();
-//var_dump($order);die;
+//构建请求参数
+$data = [
+    "out_trade_no" => $_POST['out_trade_no'],
+    "subject" => $_POST['subject'],
+    "body" => $_POST['subject'],
+    "amount" =>$_POST['amount'],
+    "currency" =>'CNY',
+    "channel" => strtolower($_POST['channel']), //支付方式
+    "extparam" => [
+        "openid" => "ow_adnfkewnlalaNLNfBJfghyrkBL"
+    ], //支付附加参数
+];
+// 创建支付订单对象
+$order = \Yubei\Charge::create($data);
+var_dump($order);
 $qrcode = $order['charge']['credential']['order_qr'];
 ?>
 <!DOCTYPE html>

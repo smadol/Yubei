@@ -7,7 +7,6 @@
 namespace app\service\request;
 use app\library\exception\ForbiddenException;
 use app\library\exception\ParameterException;
-use think\Cache;
 use think\cache\driver\Redis;
 use think\Request;
 
@@ -30,7 +29,7 @@ class CheckFrequent extends ApiCheck
      *
      * @var integer
      */
-    private $times = 6000;
+    private $times = 3000;
 
     /**
      * @author 勇敢的小笨羊
@@ -44,12 +43,12 @@ class CheckFrequent extends ApiCheck
         if ((float)time() - (float)$request->header('timestamp') >= 2*60*1000) {
             throw new ForbiddenException(['code'=>401, 'msg'=>'Expired request']);
         }
-        $key = 'Gateway-client-ip:' . $request->ip();
-        $redis = new Cache();
+        $key = 'Gateways-client-ip:' . $request->ip();
+        $redis = new Redis();
         $value = $redis->get($key);
-        halt($value);
+        echo $value;
         if (!$value) {
-            $redis->set($key, $this->timeScope, 0);
+            $redis->set($key, $this->timeScope, 1);
         }
         if ($value >= $this->times) {
             throw new ParameterException([

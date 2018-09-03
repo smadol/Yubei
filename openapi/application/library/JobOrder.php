@@ -6,7 +6,7 @@
 
 namespace app\library;
 
-use app\model\Asset;
+use app\model\Balance;
 use app\model\Orders;
 use think\Log;
 use think\queue\Job;
@@ -76,7 +76,7 @@ class JobOrder
                 ->where(['status'=>1])
                // ->whereTime('create_time', '<=', time()-15*60) //15分之前的
                 ->update(['status'=>0]);
-            (new Asset())->where(['uid' => $k['uid']])->setDec('disable', $k['amount']);
+            (new Balance())->where(['uid' => $k['uid']])->setDec('disable', $k['amount']);
         }
         Log::record('End OrderExecute:'.time());
 

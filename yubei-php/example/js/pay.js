@@ -1,28 +1,9 @@
 $(function () {
-    var timer, minutes, seconds, ci, qi;
-    timer = parseInt(order.remainseconds) - 1;
-    ci = setInterval(function () {
-        minutes = parseInt(timer / 60, 10)
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        $(".minutes b").text(minutes);
-        $(".seconds b").text(seconds);
-        if (--timer < 0) {
-            $(".qrcode .expired").removeClass("hidden");
-            $(".warning").html('<a href="javascript:;" onclick="location.reload()" class="text-danger">' + addon.expiretips + '</a>').removeClass("hidden");
-            clearInterval(ci);
-            clearInterval(qi);
-        }
-    }, 1000);
-
     //定时查询订单状态
     var checkOrderStatus = function () {
         clearTimeout(qi);
         $.ajax({
-            url: order.queryurl,
+            url: 'order.php',
             success: function (ret) {
                 if (ret.code == 1) {
                     var data = ret.data;
