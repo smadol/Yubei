@@ -11,24 +11,21 @@
  * +---------------------------------------------------------------------+
  */
 
-namespace app\behavior;
+namespace app\controller;
 
-class CORS
+
+class Admin extends Base
 {
     /**
-     * 初始化跨域
+     * 获取管理员信息
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @param $params
+     * @return mixed
      */
-    public function appInit(&$params)
-    {
-        header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        header('Access-Control-Allow-Methods: POST,GET');
-        if( request()->isOptions()){
-            exit();
-        }
+    public function profile(){
+        $this->assign('info',$this->logicAdmin->getAdminInfo(['id' =>is_login()]));
+        return $this->fetch();
     }
+
 }

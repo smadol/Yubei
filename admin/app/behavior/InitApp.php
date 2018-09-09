@@ -1,32 +1,35 @@
 <?php
 /**
- *  +---------------------------------------------------------------------+
- *  | Yubei    | [ WE CAN DO IT JUST THINK ]                              |
- *  +---------------------------------------------------------------------+
- *  | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )           |
- *  +---------------------------------------------------------------------+
- *  | Author     | Brian Waring <BrianWaring98@gmail.com>                 |
- *  +---------------------------------------------------------------------+
- *  | Repository | https://github.com/BrianWaring/Yubei                   |
- *  +---------------------------------------------------------------------+
- *
+ * +---------------------------------------------------------------------+
+ * | Yubei    | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\behavior;
 
-
 /**
  * 应用初始化基础信息行为
+ *
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
  */
 class InitApp
 {
 
     /**
      * 初始化行为入口
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      */
     public function run()
     {
-
         // 初始化分层名称常量
         $this->initLayerConst();
 
@@ -34,6 +37,9 @@ class InitApp
 
     /**
      * 初始化分层名称常量
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      */
     private function initLayerConst()
     {

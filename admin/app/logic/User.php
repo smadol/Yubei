@@ -1,13 +1,22 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei    | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
+
 namespace app\logic;
 
 
 
 use think\Db;
+use think\Log;
 
 class User extends BaseLogic
 {
@@ -96,7 +105,7 @@ class User extends BaseLogic
                 'sitename' =>  $data['sitename']
             ]);
             Db::commit();
-            return '添加商户成功';
+            return [1,'添加商户成功'];
         }catch (\Exception $ex){
             Db::rollback();
             return $ex->getMessage();
@@ -104,6 +113,13 @@ class User extends BaseLogic
 
     }
 
+    /**
+     * 编辑商户
+     * @author 勇敢的小笨羊
+     * @param $data
+     * @param bool $validate_result
+     * @return array|string
+     */
     public function editUser($data,$validate_result = true){
 
         //TODO  验证数据
@@ -133,10 +149,11 @@ class User extends BaseLogic
                     break;
             }
             Db::commit();
-            return '编辑成功';
+            return [1,'编辑成功'];
         }catch (\Exception $ex){
             Db::rollback();
-            return $ex->getMessage();
+            Log::error($ex->getMessage());
+            return [0,'未知错误'];
         }
     }
 
@@ -144,7 +161,7 @@ class User extends BaseLogic
      * 删除商户
      * @author 勇敢的小笨羊
      * @param array $where
-     * @return string
+     * @return array
      */
     public function delUser($where = []){
         Db::startTrans();
@@ -154,17 +171,34 @@ class User extends BaseLogic
             $this->modelBalance->deleteInfo($where);
             $this->modelApi->deleteInfo($where);
             Db::commit();
-            return '会员删除成功';
+            return [1,'会员删除成功'];
         }catch (\Exception $ex){
             Db::rollback();
-            return $ex->getMessage();
+            Log::error($ex->getMessage());
+            return [0,'未知错误'];
         }
     }
+
+
     /**
-     * 设置商户信息
+     * 改变商户可用性
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $where
+     * @param int $value
+     * @return array
      */
-    public function setUserValue($where = [], $field = '', $value = '')
-    {
-        return $this->modelUser->setFieldValue($where, $field, $value);
+    public function setUserStatus($where,$value = 0){
+        Db::startTrans();
+        try{
+            $this->modelUser->setFieldValue($where, $field = 'status', $value);
+            Db::commit();
+            return [1,'修改状态成功'];
+        }catch (\Exception $ex){
+            Db::rollback();
+            Log::error($ex->getMessage());
+            return [0,'未知错误'];
+        }
     }
 }

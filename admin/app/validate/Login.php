@@ -11,31 +11,43 @@
  * +---------------------------------------------------------------------+
  */
 
-namespace app\controller;
+namespace app\validate;
 
-class Index extends Base
+/**
+ * 登录验证器
+ *
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
+ */
+class Login extends BaseValidate
 {
-    /**
-     * 访问首页  -  加载框架
-     *
-     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
-     *
-     * @return mixed
-     */
-    public function index()
-    {
-        return $this->fetch();
-    }
 
     /**
-     * 欢迎主页  -  展示数据
+     * 验证规则
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @return mixed
+     * @var array
      */
-    public function welcome()
-    {
-        return $this->fetch();
-    }
+    protected $rule =   [
+
+        'username'  => 'require',
+        'password'  => 'require',
+        'verify'    => 'require|captcha',
+    ];
+
+    /**
+     * 验证消息
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var array
+     */
+    protected $message  =   [
+
+        'username.require'    => '用户名不能为空',
+        'password.require'    => '密码不能为空',
+        'verify.require'      => '验证码不能为空',
+        'verify.captcha'      => '验证码不正确',
+    ];
 }

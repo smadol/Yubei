@@ -1,7 +1,14 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei    | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\model;
@@ -9,6 +16,12 @@ namespace app\model;
 use think\Db;
 use think\Model;
 
+/**
+ * Class BaseModel
+ *
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
+ */
 class BaseModel extends Model
 {
     // 是否需要自动写入时间戳 如果设置为字符串 则表示时间字段的类型
@@ -20,22 +33,20 @@ class BaseModel extends Model
 
     /**
      * 连接查询
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var array
      */
     protected $join = [];
 
-    /**
-     * 状态获取器
-     */
-    public function getStatusTextAttr()
-    {
-
-        $status = [-1 => '删除', -0 => "<span class='badge bg-red'>禁用</span>", 1 => "<span class='badge bg-green'>启用</span>"];
-
-        return $status[$this->data['status']];
-    }
 
     /**
-     * 设置数据
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $data
+     * @param array $where
+     * @return false|int|string
      */
     final protected function setInfo($data = [], $where = [])
     {
@@ -62,6 +73,12 @@ class BaseModel extends Model
 
     /**
      * 更新数据
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param array $data
+     * @return false|int
      */
     final protected function updateInfo($where = [], $data = [])
     {
@@ -73,6 +90,13 @@ class BaseModel extends Model
 
     /**
      * 统计数据
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param string $stat_type
+     * @param string $field
+     * @return mixed
      */
     final protected function stat($where = [], $stat_type = 'count', $field = 'id')
     {
@@ -82,6 +106,13 @@ class BaseModel extends Model
 
     /**
      * 设置数据列表
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $data_list
+     * @param bool $replace
+     * @return array|false
+     * @throws \Exception
      */
     final protected function setList($data_list = [], $replace = false)
     {
@@ -93,6 +124,13 @@ class BaseModel extends Model
 
     /**
      * 设置某个字段值
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param string $field
+     * @param string $value
+     * @return false|int
      */
     final protected function setFieldValue($where = [], $field = '', $value = '')
     {
@@ -102,6 +140,12 @@ class BaseModel extends Model
 
     /**
      * 删除数据
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param bool $is_true
+     * @return false|int
      */
     final protected function deleteInfo($where = [], $is_true = false)
     {
@@ -120,6 +164,13 @@ class BaseModel extends Model
 
     /**
      * 获取某个列的数组
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param string $field
+     * @param string $key
+     * @return array
      */
     final protected function getColumn($where = [], $field = '', $key = '')
     {
@@ -129,6 +180,14 @@ class BaseModel extends Model
 
     /**
      * 获取某个字段的值
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param string $field
+     * @param null $default
+     * @param bool $force
+     * @return mixed
      */
     final protected function getValue($where = [], $field = '', $default = null, $force = false)
     {
@@ -138,6 +197,15 @@ class BaseModel extends Model
 
     /**
      * 获取单条数据
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param bool $field
+     * @return array|false|\PDOStatement|string|Model
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     final protected function getInfo($where = [], $field = true)
     {
@@ -154,6 +222,17 @@ class BaseModel extends Model
     /**
      * 获取列表数据
      * 若不需要分页 $paginate 设置为 false
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param bool $field
+     * @param string $order
+     * @param int $paginate
+     * @return false|\PDOStatement|string|\think\Collection|\think\Paginator
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
     final protected function getList($where = [], $field = true, $order = '', $paginate = 0)
     {
@@ -194,6 +273,11 @@ class BaseModel extends Model
 
     /**
      * 原生查询
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param string $sql
+     * @return mixed
      */
     final protected function query($sql = '')
     {
@@ -203,6 +287,11 @@ class BaseModel extends Model
 
     /**
      * 原生执行
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param string $sql
+     * @return int
      */
     final protected function execute($sql = '')
     {
@@ -212,6 +301,11 @@ class BaseModel extends Model
 
     /**
      * 重写获取器 兼容 模型|逻辑|验证|服务 层实例获取
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param string $name
+     * @return mixed|Model|\think\Validate
      */
     public function __get($name)
     {
@@ -230,6 +324,11 @@ class BaseModel extends Model
 
     /**
      * 获取层前缀
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $name
+     * @return bool|mixed
      */
     public function getLayerPre($name)
     {

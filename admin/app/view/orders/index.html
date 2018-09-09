@@ -15,8 +15,28 @@
 <div class="page-content-wrap">
     <form class="layui-form" action="">
         <div class="layui-form-item">
+            <div class="layui-inline tool-btn">
+                <button class="layui-btn layui-btn-small layui-btn-normal exportBtn hidden-xs"  data-url="{:url('user/export')}"><i class="layui-icon">&#xe61e;</i></button>
+            </div>
             <div class="layui-inline">
-                <input type="text" name="order_no" placeholder="请输入订单号" autocomplete="off" class="layui-input">
+                <input type="text" name="keywords" placeholder="请输入订单号" value="{$Request.get.keywords}" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-inline">
+                <select name="channel" lay-filter="status">
+                    <option value="">请选择一个渠道</option>
+                    <option {$Request.get.channel == 'wx_scan' ? 'selected' : '' } value="wx_scan">wx_scan</option>
+                    <option {$Request.get.channel == 'qq_scan' ? 'selected' : '' } value="qq_scan">qq_scan</option>
+                    <option {$Request.get.channel == 'ali_web' ? 'selected' : '' } value="ali_web">ali_web</option>
+                </select>
+            </div>
+            <div class="layui-inline">
+                <select name="status" lay-filter="status">
+                    <option value="">请选择一个状态</option>
+                    <option {$Request.get.status == '-1' ? 'selected' : '' } value="-1">订单关闭</option>
+                    <option {$Request.get.status == '0' ? 'selected' : '' } value="0">取消订单</option>
+                    <option {$Request.get.status == '1' ? 'selected' : '' } value="1">等待支付</option>
+                    <option {$Request.get.status == '2' ? 'selected' : '' } value="2">支付成功</option>
+                </select>
             </div>
             <button class="layui-btn layui-btn-normal" lay-submit="search">搜索</button>
         </div>
@@ -60,7 +80,14 @@
                 <td class="hidden-xs">{$vo.channel}</td>
                 <td class="hidden-xs">{$vo.amount}</td>
                 <td class="hidden-xs">{$vo.currency}</td>
-                <td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='{$vo.status}'>等待支付</button></td>
+                <td>
+                    {switch $vo.status}
+                        {case 0} <button class="layui-btn layui-btn-mini layui-btn-warm">订单关闭</button>{/case}
+                        {case 1}<button class="layui-btn layui-btn-mini layui-btn-normal}" >等待支付</button>{/case}
+                        {case 2}<button class="layui-btn layui-btn-mini layui-btn-success}" >支付完成</button>{/case}
+                        {default}<button class="layui-btn layui-btn-mini layui-btn-danger" >订单异常</button>{/case}
+                    {/switch}
+                </td>
                 <td>
                     <div class="layui-inline">
                         <button class="layui-btn layui-btn-mini layui-btn-normal  edit-btn" data-id="1" data-url="{:url('order/edit')}"><i class="layui-icon">&#xe642;</i></button>
@@ -75,41 +102,6 @@
 </div>
 <script src="__STATIC__/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="__STATIC__/js/common.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    layui.use(['form', 'jquery', 'layer', 'dialog'], function() {
-        var $ = layui.jquery;
-
-        //修改状态
-        $('#table-list').on('click', '.table-list-status', function() {
-            var That = $(this);
-            var status = That.attr('data-status');
-            var id = That.parent().attr('data-id');
-            if(status == 1) {
-                That.removeClass('layui-btn-normal').addClass('layui-btn-warm').html('可用').attr('data-status', 2);
-                //处理禁用操作
-            } else if(status == 2) {
-                That.removeClass('layui-btn-warm').addClass('layui-btn-normal').html('禁用').attr('data-status', 1);
-                //处理可用操作
-
-            }
-        })
-
-        //查看参数
-        $('#table-list').on('click', '.table-list-param', function() {
-
-            var That = $(this);
-            var id = That.attr('data-id');
-            $.ajax({
-                url:'/channel/getParam/id/'+id,
-                success:function (res) {
-
-                    layer.alert(res)
-                }
-            });
-        })
-
-    });
-</script>
 </body>
 
 </html>

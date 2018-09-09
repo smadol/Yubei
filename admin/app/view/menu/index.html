@@ -20,7 +20,7 @@
                 <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html"><i class="iconfont">&#xe656;</i></button>
             </div>
             <div class="layui-inline">
-                <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="keywords" value="{$Request.get.keywords|default=''}" placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-inline">
                 <select name="states" lay-filter="status">
@@ -69,7 +69,7 @@
                         <a class="layui-btn layui-btn-mini layui-btn-normal showSubBtn" data-id='{$vo.id}'>+</a>
                     {/if}
                 </td>
-                <td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status">显示 </button></td>
+                <td><button class="layui-btn layui-btn-mini layui-btn-{$vo.status == 1?'success':'warm'} table-list-status" data-id="{$vo.id}" data-status='{$vo.status}'>{$vo.status == 1?'可用':'禁用'}</button></td>
                 <td>
                     <div class="layui-inline">
                         <button class="layui-btn layui-btn-mini layui-btn-normal edit-btn" data-id="{$vo.id}" data-url="{:url('menu/edit')}"><i class="layui-icon">&#xe642;</i></button>
@@ -91,13 +91,21 @@
         $('#table-list').on('click', '.table-list-status', function() {
             var That = $(this);
             var status = That.attr('data-status');
-            var id = That.parent().attr('data-id');
-            if(status == 1) {
-                That.removeClass('layui-btn-normal').addClass('layui-btn-warm').html('隐藏').attr('data-status', 2);
-            } else if(status == 2) {
-                That.removeClass('layui-btn-warm').addClass('layui-btn-normal').html('显示').attr('data-status', 1);
+            var id = That.attr('data-id');
+            //提交修改
+            $.post("{:url('menu/changeStatus')}",{id:id,status:status},function (res) {
+                    if (res.code == 1){
+                        if(status == 1) {
+                            That.removeClass('layui-btn-success').addClass('layui-btn-warm').html('禁用').attr('data-status', 0);
 
-            }
+                        }else{
+                            That.removeClass('layui-btn-warm').addClass('layui-btn-success').html('可用').attr('data-status', 1);
+                        }
+                    }
+                    layer.alert(res.msg,{title: "修改状态", btn: ['确定']});
+                }
+            );
+            return false;
         });
 
         //栏目展示隐藏

@@ -11,24 +11,39 @@
  * +---------------------------------------------------------------------+
  */
 
-namespace app\behavior;
+namespace app\logic;
 
-class CORS
+
+class Admin extends BaseLogic
 {
     /**
-     * 初始化跨域
+     * 获取管理员信息
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @param $params
+     * @param array $where
+     * @param bool $field
+     * @return mixed
      */
-    public function appInit(&$params)
+    public function getAdminInfo($where = [], $field = true)
     {
-        header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-        header('Access-Control-Allow-Methods: POST,GET');
-        if( request()->isOptions()){
-            exit();
-        }
+
+        return $this->modelAdmin->getInfo($where, $field);
+    }
+
+    /**
+     * 设置管理员信息
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param array $where
+     * @param string $field
+     * @param string $value
+     * @return mixed
+     */
+    public function setAdminValue($where = [], $field = '', $value = '')
+    {
+
+        return $this->modelAdmin->setFieldValue($where, $field, $value);
     }
 }

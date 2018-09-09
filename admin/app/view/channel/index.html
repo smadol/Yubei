@@ -29,8 +29,12 @@
             <colgroup>
                 <col width="50">
                 <col class="hidden-xs" width="50">
+                <col width="100">
+                <col width="100">
+                <col width="100">
+                <col class="hidden-xs">
                 <col class="hidden-xs" width="100">
-                <col>
+                <col class="hidden-xs" width="150">
                 <col width="80">
                 <col width="150">
             </colgroup>
@@ -42,8 +46,8 @@
                 <th>日限额</th>
                 <th>费率</th>
                 <th class="hidden-xs">参数</th>
-                <th>备注</th>
-                <th>更新时间</th>
+                <th class="hidden-xs">备注</th>
+                <th class="hidden-xs">更新时间</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
@@ -52,19 +56,18 @@
             {volist name="list" id="vo"}
             <tr>
                 <td><input type="checkbox" name="" lay-skin="primary" data-id="{$vo.id}"></td>
-                <td>{$vo.id}</td>
+                <td class="hidden-xs">{$vo.id}</td>
                 <td>{$vo.name}</td>
                 <td>{$vo.daily}</td>
                 <td>{$vo.rate}</td>
                 <td class="hidden-xs"><button class="layui-btn layui-btn-mini layui-btn-warning table-list-param" data-id="{$vo.id}">查看参数</button></td>
-                <td>{$vo.remark}</td>
-                <td>{$vo.update_time}</td>
-                <td><button class="layui-btn layui-btn-mini layui-btn-normal table-list-status" data-status='{$vo.status}'>显示</button></td>
+                <td class="hidden-xs">{$vo.remark}</td>
+                <td class="hidden-xs">{$vo.update_time}</td>
+                <td><button class="layui-btn layui-btn-mini layui-btn-{$vo.status == 1?'success':'warm'} table-list-status" data-id="{$vo.id}" data-status='{$vo.status}'>{$vo.status == 1?'可用':'禁用'}</button></td>
                 <td>
                     <div class="layui-inline">
-                        <button class="layui-btn layui-btn-mini layui-btn-normal  add-btn" data-id="1" data-url="menu-add2.html"><i class="layui-icon">&#xe654;</i></button>
-                        <button class="layui-btn layui-btn-mini layui-btn-normal  edit-btn" data-id="1" data-url="menu-add2.html"><i class="layui-icon">&#xe642;</i></button>
-                        <button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="1" data-url="del.html"><i class="layui-icon">&#xe640;</i></button>
+                        <button class="layui-btn layui-btn-mini layui-btn-normal  edit-btn" data-id="{$vo.id}" data-url="{:url('channel/edit')}"><i class="layui-icon">&#xe642;</i></button>
+                        <button class="layui-btn layui-btn-mini layui-btn-danger del-btn" data-id="{$vo.id}" data-url="{:url('channel/del')}"><i class="layui-icon">&#xe640;</i></button>
                     </div>
                 </td>
             </tr>
@@ -83,29 +86,34 @@
         $('#table-list').on('click', '.table-list-status', function() {
             var That = $(this);
             var status = That.attr('data-status');
-            var id = That.parent().attr('data-id');
-            if(status == 1) {
-                That.removeClass('layui-btn-normal').addClass('layui-btn-warm').html('可用').attr('data-status', 2);
-                //处理禁用操作
-            } else if(status == 2) {
-                That.removeClass('layui-btn-warm').addClass('layui-btn-normal').html('禁用').attr('data-status', 1);
-                //处理可用操作
+            var id = That.attr('data-id');
+            //提交修改
+            $.post("{:url('channel/changeStatus')}",{id:id,status:status},function (res) {
+                if (res.code == 1){
+                    if(status == 1) {
+                        That.removeClass('layui-btn-success').addClass('layui-btn-warm').html('禁用').attr('data-status', 0);
 
-            }
-        })
+                    }else{
+                        That.removeClass('layui-btn-warm').addClass('layui-btn-success').html('可用').attr('data-status', 1);
+                    }
+                }
+                layer.alert(res.msg,{title: "修改状态", btn: ['确定']});
+            });
+            return false;
+        });
 
         //查看参数
         $('#table-list').on('click', '.table-list-param', function() {
 
             var That = $(this);
             var id = That.attr('data-id');
-            $.ajax({
-                url:'/channel/getParam/id/'+id,
-                success:function (res) {
-
-                    layer.alert(res)
+            $.post("{:url('channel/getParam')}",{id:id},function (res) {
+                    if (res.code == 1){
+                        layer.alert(res.msg,{title: "查看参数", btn: ['确定']});
+                    }
                 }
-            });
+            );
+            return false;
         })
 
     });

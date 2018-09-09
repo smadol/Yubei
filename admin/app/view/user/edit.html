@@ -22,7 +22,7 @@
         <!--商户基本-->
         <div class="layui-tab-item layui-show">
             <form class="layui-form" style="width: 90%;padding-top: 20px;">
-                <input name="uid" disabled hidden="hidden" value="{$user.uid}">
+                <input name="uid" disabled hidden="hidden" value="{$user.uid|default='0'}">
                 <input name="scene" disabled hidden="hidden" value="user">
                 <div class="layui-form-item">
                     <label class="layui-form-label">账户名称：</label>
@@ -39,7 +39,7 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">登录密码：</label>
                     <div class="layui-input-block">
-                        <input type="password" name="password" autocomplete="off" class="layui-input" value="{$user.password}">
+                        <input type="password" name="password" autocomplete="off" class="layui-input" value="{$user.password|default=''}">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -63,8 +63,8 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">允许登录：</label>
                     <div class="layui-input-block">
-                        <input type="radio" name="status" value="1" title="允许" checked>
-                        <input type="radio" name="status" value="0" title="禁止">
+                        <input type="radio" name="status" value="1" title="启用" {$user.status|default='1' == 1?'checked':''}>
+                        <input type="radio" name="status" value="0" title="禁用" {$user.status|default='0' == 0?'checked':''}>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -141,6 +141,7 @@
                     <label class="layui-form-label">私钥：</label>
                     <div class="layui-input-block">
                         <textarea name="secretkey" placeholder="请输入私钥" class="layui-textarea">{$api.secretkey|default=''}</textarea>
+                        <div class="layui-form-mid layui-word-aux">商户请求加密/验签公钥（私钥商户自行保留）</div>
                     </div>
                 </div>
                 <div class="layui-form-item">

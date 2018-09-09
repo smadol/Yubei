@@ -1,8 +1,29 @@
 <?php
+/**
+ * +---------------------------------------------------------------------+
+ * | Yubei    | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
+ */
+
 namespace app\controller;
 
-class Login extends Base
+use think\Controller;
+
+class Login extends Controller
 {
+    /**
+     * 登录首页
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return mixed
+     */
     public function index()
     {
         //登录检测
@@ -13,27 +34,41 @@ class Login extends Base
 
     /**
      * 登录处理
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param string $username
+     * @param string $password
+     * @param string $verify
+     * @return array
      */
     public function login($username = '', $password = '', $verify = '')
     {
-        $this->success($this->logicUser->login($username, $password, $verify));
+        return (new \app\logic\Login())->dologin($username, $password, $verify);
+
     }
 
     /**
      * 注销登录
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return array
      */
     public function logout()
     {
-
-        $this->success($this->logicUser->logout());
+        return (new \app\logic\Login())->logout();
     }
 
     /**
      * 清理缓存
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return array
      */
     public function clearCache()
     {
-
-        $this->success($this->logicUser->clearCache());
+        return (new \app\logic\Login())->clearCache();
     }
 }
