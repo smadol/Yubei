@@ -1,5 +1,19 @@
 <?php
 /**
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
+ */
+
+/**
  * Author: 勇敢的小笨羊
  * Github: https://github.com/SingleSheep
  */
@@ -19,9 +33,9 @@ class CheckArguments extends ApiCheck
     /**
      * 网关参数
      *
-     * common arguments
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @var
+     * @var array
      */
     private $commonArgus = [
         // 授权API KEY
@@ -42,7 +56,10 @@ class CheckArguments extends ApiCheck
      *
      * check Gateway's common arguments
      *
-     * @param Request $request 请求对象
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param Request $request
+     * @return mixed|void
      * @throws ParameterException
      */
     public function doCheck(Request $request)

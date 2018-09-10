@@ -1,17 +1,30 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\service\request;
 use app\library\exception\ForbiddenException;
 use app\library\exception\ParameterException;
 use think\cache\driver\Redis;
+use think\Log;
 use think\Request;
 
 /**
  * 检验接口访问频率
+ *
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
  */
 class CheckFrequent extends ApiCheck
 {
@@ -20,37 +33,40 @@ class CheckFrequent extends ApiCheck
      *
      * 单位：seconds
      *
-     * @var integer
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var int
      */
-    private $timeScope = 60;
+    private $timeScope = 1;
 
     /**
      * 限定次数
      *
-     * @var integer
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var int
      */
-    private $times = 3000;
+    private $times = 10;
 
     /**
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param Request $request
-     * @throws ForbiddenException
+     * @return mixed|void
      * @throws ParameterException
      */
     public function doCheck(Request $request)
     {
-        // 过期验证
-        if ((float)time() - (float)$request->header('timestamp') >= 2*60*1000) {
-            throw new ForbiddenException(['code'=>401, 'msg'=>'Expired request']);
-        }
         $key = 'Gateways-client-ip:' . $request->ip();
         $redis = new Redis();
         $value = $redis->get($key);
-        echo $value;
+
         if (!$value) {
             $redis->set($key, $this->timeScope, 1);
         }
         if ($value >= $this->times) {
+            Log::error($key);
             throw new ParameterException([
                 'msg'=>"too many request per {$this->timeScope} seconds",
                 'code'=>1000]);

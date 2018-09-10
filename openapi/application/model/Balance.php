@@ -1,10 +1,16 @@
 <?php
 /**
- * Created by 小羊.
- * Author: 勇敢的小笨羊
- * 微博: http://weibo.com/xuzuxing
- * Date: 2018/3/8
- * Time: 19:34
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\model;
@@ -14,13 +20,20 @@ class Balance extends BaseModel
 {
 
     /**
-     * @author 勇敢的小笨羊
-     * @param $uid
-     * @param $amount
+     * 自增金额
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param int $uid 商户ID
+     * @param integer $amount
+     * @param bool $field
      * @return int|true
      * @throws \think\Exception
+     *
      */
-    public static function IncDis($uid,$amount){
-       return self::where(['uid'=>$uid])->setInc('disable',$amount);
+    public function incBalance($uid,$amount,$field = false){
+
+       return self::where(['uid'=>$uid])->setInc($field ? 'available':'disable',$amount);
     }
+
 }

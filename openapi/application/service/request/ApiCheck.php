@@ -1,9 +1,17 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
-
 namespace app\service\request;
 
 use app\service\ApiRequest;
@@ -12,7 +20,8 @@ use think\Request;
 /**
  * 网关检验抽象类
  *
- * @author 勇敢的小笨羊
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
  * @package app\logic\gateway
  */
 abstract class ApiCheck extends ApiRequest
@@ -20,20 +29,26 @@ abstract class ApiCheck extends ApiRequest
     /**
      * 下一个check实体
      *
-     * @var object
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var
      */
     private $nextCheckInstance;
 
     /**
      * 校验方法
      *
-     * @param Request $request 请求对象
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param Request $request
+     * @return mixed
      */
     abstract public function doCheck(Request $request);
 
     /**
      * 设置责任链上的下一个对象
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
      * @param ApiCheck $check
      * @return ApiCheck
@@ -47,8 +62,9 @@ abstract class ApiCheck extends ApiRequest
     /**
      * 启动
      *
-     * @author 勇敢的小笨羊
-     * @param Request $request 请求对象
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param Request $request
      */
     public function start(Request $request)
     {

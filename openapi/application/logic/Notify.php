@@ -1,12 +1,17 @@
 <?php
 /**
- * Created by 小羊.
- * Author: 勇敢的小笨羊
- * 微博: http://weibo.com/xuzuxing
- * Date: 2018/3/18
- * Time: 18:03
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
-
 
 namespace app\logic;
 
@@ -20,19 +25,17 @@ use think\Exception;
 use think\Log;
 use Yansongda\Pay\Pay;
 
-/**
- * 支付回调
- * Class YuPayNotify
- * @package app\api\service
- */
 class Notify extends BaseLogic
 {
     use PayUtil;
 
     /**
+     * 支付回调助手
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
      * @param $data
-     * @return mixed
+     * @return bool
      */
     public function handle($data){
         Db::startTrans();
@@ -61,8 +64,12 @@ class Notify extends BaseLogic
 
         return true;
     }
+
     /**
      * 更新支付单状态
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $id
      * @param $success
      */
@@ -75,6 +82,9 @@ class Notify extends BaseLogic
 
     /**
      * 记录交易流水
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $order
      */
     private function recordTransaction($order)
@@ -87,10 +97,10 @@ class Notify extends BaseLogic
     }
 
     /**
-     * 更新商户账户余额
-     * 交易前存入disable
-     * 交易支付完成转入available
-     * 结算的时候加入assets
+     * 更新商户账户余额  交易前disable 交易完成available <之间系统当日结算次日打款> 结算balance
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $uid
      * @param $fee
      * @throws Exception
@@ -105,12 +115,15 @@ class Notify extends BaseLogic
     }
 
     /**
-     * 返回商户支付成功
+     * 返回商户支付成功 这里应该药用到队列处理  （暂不处理20180910）
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $order
      */
     private function returnNotify($order){
         //支付成功 向商户返回XML成功通知
-        $inputObj = new PayReply();
+        /*$inputObj = new PayReply();
         $inputObj->SetReturn_code('SUCCESS');
         $inputObj->SetReturn_msg('OK');
         $inputObj->SetReturn_fee($order->amount);
@@ -119,15 +132,19 @@ class Notify extends BaseLogic
         $data = $inputObj->GetValues();
         Log::record(json_encode($data));
         $respose = curl_post_raw($order->notify_url,json_encode($data));
-        Log::record($respose);
+        Log::record($respose);*/
         //这里要做5次回传数据 返回正确才会停止回传
 //        curl_post_xml($data,$order->notify_url);
 
     }
 
     /**
-     * 回转商户
+     * 支付完成跳转转商户
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @return mixed
+     * @throws \Yansongda\Pay\Exceptions\InvalidConfigException
      * @throws \Yansongda\Pay\Exceptions\InvalidSignException
      * @throws \think\exception\DbException
      */

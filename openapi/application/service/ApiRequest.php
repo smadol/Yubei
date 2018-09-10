@@ -1,8 +1,16 @@
 <?php
-
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\service;
@@ -22,6 +30,12 @@ use think\Request;
  */
 class ApiRequest extends Rest
 {
+    /**
+     * 我觉得还是提到Gateway比较好  而不是AppInit
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     */
     public function appBegin(){
         Log::notice("开始时间：".microtime());
         // 初始化一个：访问频次校验的check

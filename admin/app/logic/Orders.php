@@ -28,7 +28,7 @@ class Orders extends BaseLogic
      * @param int $paginate
      * @return mixed
      */
-    public function getOrderList($where = [], $field = true, $order = '', $paginate = 20)
+    public function getOrderList($where = [], $field = true, $order = 'create_time desc', $paginate = 15)
     {
         return $this->modelOrders->getList($where, $field, $order, $paginate);
     }

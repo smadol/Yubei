@@ -1,15 +1,28 @@
 <?php
 /**
- * Author: Single Dog
- * Github: https://github.com/SingleSheep
- * Date: 2018/2/6 - 20:00
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
-
 namespace app\logic;
 use app\library\exception\ParameterException;
 use app\library\exception\OrderException;
 use app\library\exception\UserException;
 
+/**
+ * 下单处理
+ *
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
+ */
 class PrePay extends BaseLogic
 {
     /**
@@ -20,7 +33,9 @@ class PrePay extends BaseLogic
      * 5.完成订单
      *
      * 构建支付订单
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $orderData
      * @return mixed
      * @throws OrderException
@@ -28,7 +43,7 @@ class PrePay extends BaseLogic
      * @throws UserException
      */
     public function orderPay($orderData){
-        // 验证
+        //TODO 验证支付数据
         $this->validateUnifiedorder->gocheck();
         // 是否重复订单
         if(!is_null($orderData)){
@@ -48,7 +63,7 @@ class PrePay extends BaseLogic
             if(!$User){
                 throw new UserException(['msg'=>'The Merchant Does Not Exist, Please Check The Merchant ID']);
             }
-            // 添加
+            //TODO 订单持久化（估计用到队列）并提交支付
             return $this->modelOrders->addOrder($orderData);
 
         }
@@ -57,8 +72,14 @@ class PrePay extends BaseLogic
         ]);
     }
 
+    /**
+     * 查询订单
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $queryData
+     */
     public function orderQuery($queryData){
-        halt($queryData);
         // 验证
         $this->validateQueryorder->gocheck();
     }

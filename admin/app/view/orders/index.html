@@ -45,24 +45,32 @@
         <table class="layui-table" lay-even lay-skin="nob">
             <colgroup>
                 <col width="50">
-                <col class="hidden-xs" width="50">
-                <col class="hidden-xs" width="50">
-                <col>
+                <col width="50">
+                <col width="50">
+                <col width="50">
+                <col width="50">
+                <col width="150">
+                <col width="150">
                 <col width="80">
+                <col width="100">
+                <col width="100">
+                <col width="200">
+                <col width="100">
                 <col width="150">
             </colgroup>
             <thead>
             <tr>
                 <th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
                 <th class="hidden-xs">ID</th>
-                <th>商户ID</th>
+                <th class="hidden-xs">商户ID</th>
                 <th>交易订单号</th>
-                <th>商户订单号</th>
-                <th>支付项目</th>
-                <th>支付内容</th>
+                <th class="hidden-xs">商户订单号</th>
+                <th class="hidden-xs">支付项目</th>
+                <th class="hidden-xs">支付内容</th>
                 <th>支付渠道</th>
                 <th>支付金额</th>
-                <th>支付币种</th>
+                <th class="hidden-xs">支付币种</th>
+                <th class="hidden-xs">创建时间</th>
                 <th>订单状态</th>
                 <th>操作</th>
             </tr>
@@ -73,13 +81,14 @@
                 <td><input type="checkbox" name="" lay-skin="primary" data-id="{$vo.id}"></td>
                 <td class="hidden-xs">{$vo.id}</td>
                 <td class="hidden-xs">{$vo.uid}</td>
-                <td class="hidden-xs">{$vo.trade_no}</td>
+                <td>{$vo.trade_no}</td>
                 <td class="hidden-xs">{$vo.out_trade_no}</td>
                 <td class="hidden-xs">{$vo.subject}</td>
                 <td class="hidden-xs">{$vo.body}</td>
-                <td class="hidden-xs">{$vo.channel}</td>
-                <td class="hidden-xs">{$vo.amount}</td>
+                <td>{$vo.channel}</td>
+                <td>{$vo.amount}</td>
                 <td class="hidden-xs">{$vo.currency}</td>
+                <td class="hidden-xs">{$vo.create_time}</td>
                 <td>
                     {switch $vo.status}
                         {case 0} <button class="layui-btn layui-btn-mini layui-btn-warm">订单关闭</button>{/case}
@@ -98,10 +107,12 @@
             {/volist}
             </tbody>
         </table>
+        {$list->render()}
     </div>
 </div>
 <script src="__STATIC__/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="__STATIC__/js/common.js" type="text/javascript" charset="utf-8"></script>
+
 </body>
 
 </html>

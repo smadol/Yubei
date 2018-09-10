@@ -1,8 +1,16 @@
 <?php
 /**
- * Author: Single Dog
- * Github: https://github.com/SingleSheep
- * Date: 2018/2/6 - 22:08
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\model;
@@ -14,12 +22,16 @@ class Orders extends BaseModel
 {
 
     /**
-     * @author 勇敢的小笨羊
+     * 创建支付订单
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $orderData
      * @return mixed
-     * @throws \think\Exception
+     * @throws OrderException
      */
     public function addOrder($orderData){
+        //TODO 事务处理
         Db::startTrans();
         try{
             $order = new Orders();
@@ -36,18 +48,20 @@ class Orders extends BaseModel
             $order->notify_url  = $orderData['notify_url'];//通知Url
             $order->extra       = json_encode($orderData['extparam']);//拓展参数
             $order->save();
-
             //  余额 = 可用余额（可提现金额） + 冻结余额（待结算金额） =》 未支付金额每日清算
             //   可用余额是从冻结余额转入的
             //写入待支付金额
-            //Balance::IncDis($orderData['mchid'],$orderData['amount']);
+            $this->modelBalance->incBalance($order->uid,$order->amount);
+            //提交支付
             $result = $this->logicPay->pay($order->trade_no);  //支付
             Db::commit();
             return $result;
 
         }catch (\Exception $e){
-            Log::record("ERROR:[{$e->getMessage()}]");
+            //记录日志
+            Log::record("Create Order Error:[{$e->getMessage()}]");
             Db::rollback();
+            //抛出错误异常
             throw new OrderException([
                 'msg'   =>  "Create Payment Order Error, Please Try Again Later."
             ]);
@@ -56,8 +70,11 @@ class Orders extends BaseModel
 
     /**
      * 订单状态检查
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $orderNo
-     * @return string
+     * @return Orders|null
      * @throws OrderException
      * @throws \think\exception\DbException
      */

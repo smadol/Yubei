@@ -1,8 +1,16 @@
 <?php
 /**
- * Author: Single Dog
- * Github: https://github.com/SingleSheep
- * Date: 2018/2/7 - 22:45
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\logic\notify;
@@ -20,8 +28,11 @@ trait PayUtil
 
     /**
      * 设置签名，详见签名生成算法
-     * @return  string
-     **/
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return string
+     */
     public function SetSign()
     {
         $sign = $this->MakeSign();
@@ -31,8 +42,11 @@ trait PayUtil
 
     /**
      * 获取签名，详见签名生成算法的值
-     * @return string
-     **/
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return mixed
+     */
     public function GetSign()
     {
         return $this->values['sign'];

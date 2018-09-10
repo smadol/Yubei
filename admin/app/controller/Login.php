@@ -13,9 +13,8 @@
 
 namespace app\controller;
 
-use think\Controller;
 
-class Login extends Controller
+class Login extends Common
 {
     /**
      * 登录首页
@@ -27,7 +26,7 @@ class Login extends Controller
     public function index()
     {
         //登录检测
-        is_login() && $this->success( '已登录则跳过登录页', url('index/index'));
+        is_login() && $this->redirect(url('index/index'));
 
         return $this->fetch();
     }
@@ -40,11 +39,10 @@ class Login extends Controller
      * @param string $username
      * @param string $password
      * @param string $verify
-     * @return array
      */
     public function login($username = '', $password = '', $verify = '')
     {
-        return (new \app\logic\Login())->dologin($username, $password, $verify);
+        $this->result($this->logicLogin->dologin($username, $password, $verify));
 
     }
 
@@ -53,11 +51,10 @@ class Login extends Controller
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @return array
      */
     public function logout()
     {
-        return (new \app\logic\Login())->logout();
+        $this->result($this->logicLogin->logout());
     }
 
     /**
@@ -65,10 +62,9 @@ class Login extends Controller
      *
      * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
-     * @return array
      */
     public function clearCache()
     {
-        return (new \app\logic\Login())->clearCache();
+        $this->result($this->logicLogin->clearCache());
     }
 }

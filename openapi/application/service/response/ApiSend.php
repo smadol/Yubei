@@ -1,7 +1,16 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\service\response;
@@ -19,27 +28,35 @@ abstract class ApiSend extends ApiRespose
     /**
      * 通知报文
      *
-     * @var object
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var
      */
     protected $payload;
 
     /**
      * 下一个check实体
      *
-     * @var object
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @var
      */
     private $nextCheckInstance;
 
     /**
      * 构建方法
      *
-     * @param array $chargeRespose 支付对象
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $chargeRespose
+     * @return mixed
      */
     abstract public function doBuild($chargeRespose);
 
     /**
      * 设置责任链上的下一个对象
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
      * @param ApiSend $check
      * @return ApiSend
@@ -53,8 +70,9 @@ abstract class ApiSend extends ApiRespose
     /**
      * 启动
      *
-     * @author 勇敢的小笨羊
-     * @param array $chargeRespose 支付对象
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $chargeRespose
      */
     public function start($chargeRespose)
     {

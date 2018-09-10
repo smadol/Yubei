@@ -1,12 +1,17 @@
 <?php
 /**
- * Created by 小羊.
- * Author: 勇敢的小笨羊
- * 微博: http://weibo.com/xuzuxing
- * Date: 2018/3/18
- * Time: 14:54
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
-
 namespace app\validate;
 
 use app\library\exception\ParameterException;
@@ -41,6 +46,9 @@ class BaseValidate extends Validate
 
     /**
      * Not Empty
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $value
      * @param string $rule
      * @param string $data

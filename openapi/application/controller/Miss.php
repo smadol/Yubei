@@ -1,10 +1,16 @@
 <?php
 /**
- * Created by 小羊.
- * Author: 勇敢的小笨羊
- * 微博: http://weibo.com/xuzuxing
- * Date: 2018/3/21
- * Time: 23:17
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 namespace app\controller;
 
@@ -19,6 +25,10 @@ use think\Controller;
 class Miss extends Controller
 {
     /**
+     * MissException
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @throws MissException
      */
     public function index()

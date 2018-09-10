@@ -1,7 +1,16 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\service;
@@ -27,7 +36,8 @@ abstract class Rest extends Controller
     /**
      * 创建当前请求上下文
      *
-     * @author 勇敢的小笨羊
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @throws ParameterException
      */
     public static function createContext(){
@@ -43,7 +53,8 @@ abstract class Rest extends Controller
     /**
      * 销毁当前请求上下文
      *
-     * @author 勇敢的小笨羊
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @throws ParameterException
      */
     public static function destoryContext(){
@@ -56,17 +67,24 @@ abstract class Rest extends Controller
 
     /**
      * 判断当前请求上下文是否存在
-     * @return boolean
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return bool
      */
     public static function exsits()
     {
         return isset(static::$context[self::createUniqid()]);
     }
+
     /**
      * 获取上下文数据
-     * @param string $name
-     * @param mixed $default
-     * @return mixed
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $name
+     * @param null $default
+     * @return null
      */
     public static function get($name, $default = null)
     {
@@ -83,11 +101,14 @@ abstract class Rest extends Controller
             return $default;
         }
     }
+
     /**
      * 设置上下文数据
-     * @param string $name
-     * @param mixed $value
-     * @return void
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $name
+     * @param $value
      */
     public static function set($name, $value)
     {
@@ -97,9 +118,13 @@ abstract class Rest extends Controller
         }
         static::$context[self::$conId][$name] = $value;
     }
+
     /**
      * 获取当前上下文
-     * @return array
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return mixed
      */
     public static function getContext()
     {
@@ -109,8 +134,13 @@ abstract class Rest extends Controller
         }
         return static::$context[self::$conId];
     }
+
     /**
      * 获取当前的服务器对象
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return mixed
      */
     public static function getServer()
     {
@@ -119,7 +149,11 @@ abstract class Rest extends Controller
 
     /**
      * 在当前服务器上下文中获取Bean对象
-     * @param string $name
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $name
+     * @param $params
      * @return mixed
      */
     public static function getBean($name, &$params)
@@ -129,6 +163,9 @@ abstract class Rest extends Controller
 
     /**
      * 获取当前时间的毫秒数
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @return float
      */
     public static function getMicroTime(){
@@ -138,6 +175,8 @@ abstract class Rest extends Controller
 
     /**
      * 生成唯一id[32位]
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
      *
      * @param string $namespace
      * @return string
@@ -163,19 +202,24 @@ abstract class Rest extends Controller
 
     /**
      * 生成签名字符串
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $to_sign_data
      * @return string
      */
     protected static function sign($to_sign_data){
         $Rsa = new Rsa();
+        //公钥生成签名
         $Rsa->_setPrivateKey(CRET_PATH . 'yubei_rsa_private_key.pem');
         return $Rsa->sign($to_sign_data);
     }
 
     /**
      * 数据验签
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $data
      * @param $sign
      * @param $uid
@@ -183,6 +227,7 @@ abstract class Rest extends Controller
      */
     protected static function verify($data, $sign, $uid){
         $Rsa = new Rsa();
+        //商户公钥验证签名
         $Rsa->_setPublicKey(CRET_PATH . $uid . DS .'rsa_public_key.pem');
         return $Rsa->verify($data, $sign, $code = 'base64');
     }

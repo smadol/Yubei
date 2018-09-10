@@ -1,7 +1,16 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\controller;
@@ -12,15 +21,12 @@ use think\Controller;
 class BaseController extends Controller
 {
     /**
-     * 重写获取器 兼容 模型|逻辑|验证|服务 层实例获取
      * 获取逻辑层实例  --魔术方法
-     * $this->loginArticle->getArticleList()
-     * 相应到logic/Article.php
      *
-     * @author 勇敢的小笨羊
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param $logicName
-     * @return \think\Model
-     * @throws \Exception
+     * @return \think\Model|\think\Validate
      */
     public function __get($logicName)
     {
@@ -33,6 +39,11 @@ class BaseController extends Controller
 
     /**
      * 获取层前缀
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @param $name
+     * @return bool|mixed
      */
     public function getLayerPre($name)
     {

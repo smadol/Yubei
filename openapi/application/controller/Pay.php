@@ -1,12 +1,17 @@
 <?php
 /**
- * Created by 小羊.
- * Author: 勇敢的小笨羊
- * 微博: http://weibo.com/xuzuxing
- * Date: 2018/3/18
- * Time: 14:53
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
-
 namespace app\controller;
 
 use app\service\ApiRespose;
@@ -26,6 +31,10 @@ class Pay extends BaseController
 {
 
     /**
+     * 收银台
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @throws ForbiddenException
      */
     public function gateway(){
@@ -34,7 +43,9 @@ class Pay extends BaseController
 
     /**
      * 统一扫码支付
-     * @author 勇敢的小笨羊
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      */
     public function unifiedorder(){
         //传入预支付订单信息 => 支付对象返回
@@ -42,8 +53,10 @@ class Pay extends BaseController
     }
 
     /**
-     * 统一扫码支付
-     * @author 勇敢的小笨羊
+     * 统一查询接口
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      */
     public function orderquery(){
         //传入预支付订单信息 => 支付对象返回

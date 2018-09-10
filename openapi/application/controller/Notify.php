@@ -1,10 +1,16 @@
 <?php
 /**
- * Created by 小羊.
- * Author: 勇敢的小笨羊
- * 微博: http://weibo.com/xuzuxing
- * Date: 2018/3/18
- * Time: 15:12
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\controller;
@@ -50,7 +56,11 @@ class Notify extends BaseController
 
     /**
      * WxPay Notify
-     * @return mixed
+     *
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Yansongda\Pay\Exceptions\InvalidArgumentException
      * @throws \Yansongda\Pay\Exceptions\InvalidSignException
      */
     public function wxNotify()

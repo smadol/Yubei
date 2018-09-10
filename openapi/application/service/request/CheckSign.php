@@ -1,26 +1,38 @@
 <?php
 /**
- * Author: 勇敢的小笨羊
- * Github: https://github.com/SingleSheep
+ * +---------------------------------------------------------------------+
+ * | Yubei      | [ WE CAN DO IT JUST THINK ]
+ * +---------------------------------------------------------------------+
+ * | Licensed   | http://www.apache.org/licenses/LICENSE-2.0 )
+ * +---------------------------------------------------------------------+
+ * | Author     | Brian Waring <BrianWaring98@gmail.com>
+ * +---------------------------------------------------------------------+
+ * | Company    | 小红帽科技      <Iredcap. Inc.>
+ * +---------------------------------------------------------------------+
+ * | Repository | https://github.com/BrianWaring/Yubei
+ * +---------------------------------------------------------------------+
  */
 
 namespace app\service\request;
 use app\library\exception\ForbiddenException;
 use app\library\exception\SignatureException;
-use app\library\Rsa;
-use app\logic\Encryption;
 use think\Request;
 
 /**
  * 检验网关签名
+ *
+ * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+ *
  */
 class CheckSign extends ApiCheck
 {
     /**
      * 签名校验
      *
-     * @author 勇敢的小笨羊
+     * @author 勇敢的小笨羊 <brianwaring98@gmail.com>
+     *
      * @param Request $request
+     * @return mixed|void
      * @throws ForbiddenException
      * @throws SignatureException
      */
